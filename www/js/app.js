@@ -14,7 +14,10 @@ var DOMAIN = 'http://empower21.greyback.net/'
 function AppViewModel() {
     var self = this;
     self.posts = new Posts();
-
+    self.logfile = ko.observableArray([]);
+    self.log = function(data) {
+        self.logfile.push(data);
+    }
     self.pageLoaded = function(data) {
        
     }

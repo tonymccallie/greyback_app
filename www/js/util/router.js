@@ -14,7 +14,8 @@ var Router = function() {
                callback(data);
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                console.log([jqXHR, textStatus, errorThrown]);
+                viewModel.log([jqXHR, textStatus, errorThrown]);
+                pager.navigate('#!/debug');
             },
             complete: function(jqXHR, textStatus, errorThrown) {
                 if((textStatus != 'success')&&(!quiet)) {

@@ -1,1 +1,18 @@
-<pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
+ <nav class="uk-navbar uk-navbar-attached">
+    <div class="uk-grid">
+        <div class="uk-width-1-4 uk-text-center" data-uk-dropdown="{mode:'click'}">
+            <a href="#" class="uk-icon-bars uk-icon-large"></a>
+            <div data-bind="template: {name: 'dropdown'}" class="uk-dropdown uk-text-left"></div>
+        </div>
+        <div class="uk-width-2-4 uk-text-center">
+            <h1>DEBUG</h1>
+        </div>
+    </div>
+</nav>
+<div class="uk-container uk-container-center">
+    <div class="uk-grid">
+        <div class="uk-width-1-1">
+            <pre data-bind="text: ko.toJSON(logfile, null, 2)"></pre>
+        </div>
+    </div>
+</div>

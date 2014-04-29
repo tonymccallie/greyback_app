@@ -2565,7 +2565,8 @@ var Router = function() {
                callback(data);
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                console.log([jqXHR, textStatus, errorThrown]);
+                viewModel.log([jqXHR, textStatus, errorThrown]);
+                pager.navigate('#!/debug');
             },
             complete: function(jqXHR, textStatus, errorThrown) {
                 if((textStatus != 'success')&&(!quiet)) {
@@ -2726,7 +2727,10 @@ var DOMAIN = 'http://empower21.greyback.net/'
 function AppViewModel() {
     var self = this;
     self.posts = new Posts();
-
+    self.logfile = ko.observableArray([]);
+    self.log = function(data) {
+        self.logfile.push(data);
+    }
     self.pageLoaded = function(data) {
        
     }
