@@ -1,0 +1,109 @@
+@import "../uikit/less/uikit.less";
+@import "pager.css";
+//@import "fonts.less";
+
+@grey: #85819b;
+@darkGrey: #686584;
+@white: #ffffff;
+
+body {
+	background: @grey;
+    color: @white;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "HelveticaNeue-Light";
+    font-size: 18px;
+    color: @white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.uk-navbar {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    .uk-navbar-center {
+        margin-top: 10px;
+    }
+    line-height: 42px;
+    background: @darkGrey;
+    color: @white;
+    a {
+        color: @white;
+        font-size: 14px;
+    }
+    img {
+        max-height: 90px;
+        margin: 5px;
+    }
+}
+
+.uk-dropdown {
+    margin-top: 0;
+}
+
+.date_circle {
+    width: 60px;
+    height: 52px;
+    padding-top: 8px;
+    background: @darkGrey;
+    .month {
+        font-size: 12px;
+    }
+    .day {
+        font-size: 28px;
+    }
+}
+
+
+.uk-container {
+    padding: 60px 25px 25px;
+    .uk-grid {
+        margin-bottom: 10px;
+        img {
+            //width: 100%;
+        }
+    }
+    
+    .uk-navbar .uk-grid {
+        margin-top: 0;
+    }
+}
+
+#home .uk-container {
+    padding: 110px 25px;
+}
+
+#footer {
+    width: 100%;
+	background: @darkGrey;
+	color: @white;
+    position: fixed;
+    bottom: 0;
+    a {
+        color: @white;
+    }
+    &> div {
+        padding: 15px;
+    }
+}
+
+.uk-nav a, #footer .uk-nav a {
+    color: @darkGrey;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+/*
+@import "responsive_large.less";
+@import "responsive_tablet.less";
+@import "responsive_phone.less";
+*/

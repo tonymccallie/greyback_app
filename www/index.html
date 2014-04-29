@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empower 21</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body>
+    <div id="home" data-bind="page: {
+            id:'start', 
+            title: 'Home',
+            source: 'views/home.html'
+        }" >
+    </div>
+
+    <div data-bind="page: {
+            id:'about', 
+            title: 'About',
+            source: 'views/about.html'
+        }" >
+    </div>
+    
+    <div data-bind="page: {
+            id:'info', 
+            title: 'Info',
+            source: 'views/info.html'
+        }" >
+    </div>
+    
+    <div data-bind="page: {
+            id:'leadership', 
+            title: 'Leadership',
+            source: 'views/leadership.html'
+        }" >
+    </div>
+    
+    <script type="text/html" id="dropdown">
+        <ul class="uk-nav">
+            <li><a href="#!/about"><i class="uk-icon-question-circle"></i> About</a></li>
+            <li><a href="#!/leadership"><i class="uk-icon-user"></i> Leadership</a></li>
+            <li><a href="#!/info"><i class="uk-icon-info-circle"></i> App Info</a></li>
+            <li><a href="#!/start"><i class="uk-icon-calendar"></i> Today's Prayer</a></li>
+        </ul>
+    </script>
+
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<nav class="uk-navbar uk-navbar-attached">
+    <div class="uk-grid">
+        <div class="uk-width-1-1 uk-text-center">
+            <img src="img/empowered21_logo.png" />
+        </div>
+    </div>
+</nav>
+<div data-bind="with: posts.selected()" class="uk-container uk-container-center">
+    <div class="uk-grid">
+        <div class="uk-width-1-4">
+            <div class="uk-border-circle dark date_circle">
+                <div data-bind="text:month" class="month uk-text-center">MAY</div>
+                <div data-bind="text:day" class="day uk-text-center">31</div>
+            </div>
+        </div>
+        <div class="uk-width-3-4">
+            <h2 data-bind="text: title"></h2>
+            
+        </div>
+    </div>
+    <div data-bind="visible: verse" class="uk-grid">
+        <div class="uk-width-1-1">
+            <p>
+                <i>"<span data-bind="text: verse"></span></i>"<br />
+                (<span data-bind="text:reference"></span>)</p>
+        </div>
+    </div>
+    <div class="uk-grid">
+        <div class="uk-width-1-1">
+            <p data-bind="text: prayer"></p>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="uk-grid">
+        <div class="uk-width-1-4 uk-text-center" data-uk-dropdown="{mode:'click'}">
+            <a href="#" class="uk-icon-bars uk-icon-large"></a>
+            <div data-bind="template: {name: 'dropdown'}" class="uk-dropdown uk-dropdown-up uk-text-left"></div>
+        </div>
+        <div class="uk-width-1-4 uk-text-center">
+            <a data-bind="fastClick: posts.prev" href="#" class="uk-icon-chevron-left uk-icon-large"></a>
+        </div>
+        <div class="uk-width-1-4 uk-text-center">
+            <a data-bind="fastClick: posts.next" href="#" class="uk-icon-chevron-right uk-icon-large"></a>
+        </div>
+        <div class="uk-width-1-4 uk-text-center">
+            <a data-bind="fastClick: alert" href="#" class="uk-icon-external-link uk-icon-large"></a>
+        </div>
+    </div>
+</div>
