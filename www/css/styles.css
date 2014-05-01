@@ -6505,6 +6505,7 @@ a.uk-thumbnail:focus {
 body {
   background: #85819b;
   color: #ffffff;
+  -webkit-overflow-scrolling: touch;
 }
 body,
 h1,
@@ -6566,6 +6567,7 @@ a:hover {
 }
 .uk-container {
   padding: 60px 25px 25px;
+  -webkit-overflow-scrolling: touch;
 }
 .uk-container .uk-grid {
   margin-bottom: 10px;
