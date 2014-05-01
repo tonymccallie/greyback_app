@@ -6477,6 +6477,30 @@ a.uk-thumbnail:focus {
     page-break-after: avoid;
   }
 }
+@font-face {
+  font-family: 'FuturaBold';
+  src: url('../fonts/FuturaStd-Light.otf') format('truetype');
+}
+@font-face {
+  font-family: 'FuturaBoldOblique';
+  src: url('../fonts/FuturaStd-Light.otf') format('truetype');
+}
+@font-face {
+  font-family: 'FuturaBook';
+  src: url('../fonts/FuturaStd-Light.otf') format('truetype');
+}
+@font-face {
+  font-family: 'FuturaBookOblique';
+  src: url('../fonts/FuturaStd-Light.otf') format('truetype');
+}
+@font-face {
+  font-family: 'FuturaLight';
+  src: url('../fonts/FuturaStd-Light.otf') format('truetype');
+}
+@font-face {
+  font-family: 'FuturaLightOblique';
+  src: url('../fonts/FuturaStd-Light.otf') format('truetype');
+}
 body {
   background: #85819b;
   color: #ffffff;
@@ -6488,7 +6512,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "HelveticaNeue-Light";
+  font-family: "FuturaLight";
   font-size: 18px;
   color: #ffffff;
 }
@@ -6537,6 +6561,7 @@ a:hover {
 }
 .date_circle .day {
   font-size: 28px;
+  /*         font-family: HelveticaNeue-CondensedBlack; */
 }
 .uk-container {
   padding: 60px 25px 25px;

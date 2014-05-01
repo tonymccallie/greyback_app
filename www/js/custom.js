@@ -2606,6 +2606,7 @@ var Posts = function() {
             var today = new Date();
             var today = today.getFullYear()+'-'+(('0'+(today.getMonth()+1)).slice(-2))+'-'+(('0'+today.getDate()).slice(-2));
             var indexCounter = 0;
+            var foundDay = false;
             $.each(data.posts,function(index,item) {
                 post = {
                     id: item.Post.id,
@@ -2618,12 +2619,17 @@ var Posts = function() {
                 };
                 self.latest.push(post);
                 if(today === item.Post.start) {
-                    self.selected(post);
+                    foundDay = true;
                     self.selectedIndex(indexCounter);
                 }
                 indexCounter++;
             });
+            if(!foundDay) {
+                self.selectedIndex(self.latest().length - 1);
+            }
+            self.selected(self.latest()[self.selectedIndex()]);
         });
+        
     }
     self.init();
     self.next = function() {
