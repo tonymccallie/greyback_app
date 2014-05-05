@@ -6522,6 +6522,9 @@ body {
   color: #ffffff;
   -webkit-overflow-scrolling: touch;
 }
+a {
+  color: #ffffff;
+}
 body,
 h1,
 h2,
