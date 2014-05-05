@@ -7,19 +7,25 @@
 </nav>
 <div data-bind="with: posts.selected()" class="uk-container uk-container-center">
     <div class="uk-grid">
-        <div class="uk-width-1-4">
-            <div class="uk-border-circle dark date_circle">
-                <div data-bind="text:month" class="month uk-text-center">MAY</div>
-                <div data-bind="text:day" class="day uk-text-center">31</div>
-            </div>
-        </div>
-        <div class="uk-width-3-4">
-            <h2 data-bind="text: title"></h2>
-            
+        <div class="uk-width-1-1">
+            <table>
+                <tr>
+                    <td style="width: 25%;" valign="middle">
+                        <div class="uk-border-circle dark date_circle">
+                            <div data-bind="text:month" class="month uk-text-center">MAY</div>
+                            <div data-bind="text:day" class="day uk-text-center">31</div>
+                        </div>
+                    </td>
+                    <td style="width: 75%;" valign="middle">
+                        <h2 class="title" data-bind="text: title"></h2>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
     <div data-bind="visible: verse" class="uk-grid">
         <div class="uk-width-1-1">
+            <h3>VERSE</h3>
             <p>
                 <i>"<span data-bind="text: verse"></span></i>"<br />
                 (<span data-bind="text:reference"></span>)</p>
@@ -27,6 +33,7 @@
     </div>
     <div class="uk-grid">
         <div class="uk-width-1-1">
+            <h3>PRAYER</h3>
             <p data-bind="text: prayer"></p>
         </div>
     </div>
@@ -44,7 +51,7 @@
             <a data-bind="fastClick: posts.next" href="#" class="uk-icon-chevron-right uk-icon-large"></a>
         </div>
         <div class="uk-width-1-4 uk-text-center">
-            <a data-bind="fastClick: alert" href="#" class="uk-icon-external-link uk-icon-large"></a>
+            <a href="mailto:?subject=Empower21&body=http://itunes.com" class="uk-icon-external-link uk-icon-large"></a>
         </div>
     </div>
 </div>
