@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "net.greyback.empower21"
-        version   = "1.0.2">
+        version   = "1.0.3">
 
     <name>Empower21</name>
 
@@ -77,7 +77,8 @@
     <gap:splash src="res/screen/empowered21_splash_768x1024.png" gap:platform="ios"     width="768" height="1024" />
     <gap:splash src="res/screen/empowered21_splash_1024x768.png" gap:platform="ios"     width="1024" height="768" />
 
-
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
     <!--
         Define access to external domains.
 

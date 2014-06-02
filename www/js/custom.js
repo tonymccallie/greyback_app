@@ -2631,6 +2631,12 @@ var Posts = function() {
         });
         
     }
+    
+    self.today = function() {
+        self.selectedIndex(self.latest().length - 1);
+        self.selected(self.latest()[self.selectedIndex()]);
+    }
+    
     self.init();
     self.next = function() {
         var next = self.selectedIndex() - 1;
@@ -2737,8 +2743,8 @@ function AppViewModel() {
     self.log = function(data) {
         self.logfile.push(data);
     }
-    self.pageLoaded = function(data) {
-       
+    self.today = function(data) {
+       //viewModel.posts.today();
     }
 }
 

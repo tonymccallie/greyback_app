@@ -18,8 +18,8 @@ function AppViewModel() {
     self.log = function(data) {
         self.logfile.push(data);
     }
-    self.pageLoaded = function(data) {
-       
+    self.today = function(data) {
+       //viewModel.posts.today();
     }
 }
 
