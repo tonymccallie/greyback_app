@@ -1,5 +1,5 @@
 {
-  "name": "empower21",
+  "name": "greyback_app",
   "version": "0.0.1",
   "description": "Greyback Boilerplate",
   "main": "Gruntfile.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tonymccallie/empower21"
+    "url": "https://github.com/tonymccallie/greyback_app"
   },
   "author": "Tony McCallie",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tonymccallie/empower21/issues"
+    "url": "https://github.com/tonymccallie/greyback_app/issues"
   },
   "devDependencies": {
     "grunt": "^0.4.4",

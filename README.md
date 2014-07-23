@@ -1,3 +1,3 @@
-Empower 21
+GreyBack App
 ===========
-CFN Prayer App
+App to post to GreyBack Community Feed
