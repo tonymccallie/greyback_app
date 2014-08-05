@@ -119,6 +119,7 @@ var Posts = function() {
                     imageURI,
                     'http://'+viewModel.user.domain+'/ajax/plugin/media/media/uploader/MediaImage/?uploader='+options.filename,
                     function(response) {
+                        console.log(response);
                         viewModel.log(key + ' finished uploading');
                         defself.resolve();
                     },
