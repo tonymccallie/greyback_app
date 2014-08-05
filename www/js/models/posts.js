@@ -79,11 +79,9 @@ var Posts = function() {
     }
 
     self.formPhoto = function(formData) {
-        console.log($(formData).serializeArray());
         var deferred = [];
         //UPLOAD PHOTO
         deferred.push(self.image_upload(self.photo));
-        console.log($(formData).serializeArray());
         return false;
         //UPLOAD POST
         deferred.push(router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
