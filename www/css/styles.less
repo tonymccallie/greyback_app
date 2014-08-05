@@ -1,25 +1,26 @@
 @import "../uikit/less/uikit.less";
 @import "pager.css";
 @import "fonts.less";
+@import "widget.less";
 
-@grey: #85819b;
-@darkGrey: #686584;
+@grey: #555;
+@darkGrey: #1B1B1B;
 @white: #ffffff;
+@blue: #08C;
 
 body {
 	background: @grey;
-    color: @white;
+    color: @grey;
     -webkit-overflow-scrolling: touch;
 }
 
 a {
-    color: @white;
+    color: @grey;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
-    font-family: "LatoLight";
-    font-size: 18px;
-    color: @white;
+    font-family: "LatoRegular";
+    color: @grey;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,7 +51,7 @@ a:hover {
 }
 
 #spacer {
-    background: #ffffff;
+    background: #000000;
     z-index: 100;
     position: fixed;
     top: 0;
@@ -60,10 +61,19 @@ a:hover {
 }
 
 .uk-navbar {
+    #menu_button {
+        display: block;
+        padding: 0;
+        font-size: 20px;
+        position: absolute;
+        left: 14px;
+        top: 3px;
+    }
     position: fixed;
     top: 20px;
     left:0;
     width: 100%;
+    z-index: 100;
     .uk-navbar-center {
         margin-top: 10px;
     }
@@ -76,7 +86,6 @@ a:hover {
     }
     img {
         max-height: 90px;
-        margin: 5px;
     }
 }
 
@@ -101,7 +110,7 @@ a:hover {
 
 
 .uk-container {
-    padding: 80px 25px 25px;
+    padding: 100px 25px;
     .uk-grid {
         margin-bottom: 10px;
         img {
@@ -115,11 +124,7 @@ a:hover {
     -webkit-overflow-scrolling: touch;
 }
 
-#home .uk-container {
-    padding: 130px 25px;
-}
-
-#footer {
+.footer {
     font-size: 12px;
     width: 100%;
 	background: @darkGrey;
@@ -128,19 +133,29 @@ a:hover {
     bottom: 0;
     a {
         color: @white;
+        display: block;
+        line-height: 50px;
     }
-    &> div {
-        padding: 15px;
+    #post_button {
+        background: @blue;
+        color: @white;
     }
 }
 
-.uk-nav a, #footer .uk-nav a {
+.uk-nav a, .footer .uk-nav a {
     color: @darkGrey;
     font-size: 18px;
     line-height: 22px;
     i {
         width: 20px;
     }
+}
+
+#loading {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: none;
 }
 
 /*

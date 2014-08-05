@@ -3,18 +3,15 @@
         <div class="uk-width-1-1">
             <div class="widget">
                 <div class="widget-header">
-                    <i class="uk-icon-home"></i>
-                    <h3>Latest Posts</h3>
-                    <div class="uk-button-group uk-float-right">
-                        <button class="uk-button" data-bind="click: posts.update">Update</a>
-                    </div>
+                    <i class="uk-icon-group"></i>
+                    <h3>Choose Category</h3>
                 </div>
                 <div class="widget-content">
-                    <div data-bind="foreach: posts.latest">
+                    <div data-bind="foreach: posts.groups">
                         <div class="uk-grid">
                             <div class="uk-width-1-1">
                                 <div class="uk-panel uk-panel-box">
-                                    <span data-bind="text:OrganizationDepartment.title+': '+CommunityPost.title"></span>
+                                    <a data-bind="text: title, attr:{ href:'#!/type?group='+id }"></a>
                                 </div>
                             </div>
                         </div>

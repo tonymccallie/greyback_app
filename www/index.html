@@ -3,52 +3,110 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
-<title>Empower 21</title>
+<title>GreyBack App</title>
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
 <body>
     <div id="spacer"></div>
+    <nav class="uk-navbar uk-navbar-attached">
+        <div class="uk-grid">
+            <div class="uk-width-1-1 uk-text-center">
+                <i id="loading" class="uk-icon-refresh uk-icon-spin uk-icon-small"></i>
+                <img src="img/logo.png" />
+            </div>
+        </div>
+    </nav>
+
     <div id="home" data-bind="page: {
             id:'start', 
             title: 'Home',
-            fx: 'fade',
-            source: 'views/home.html',
-            beforeShow: today
+            source: 'views/home.html'
         }" >
     </div>
 
-    <div data-bind="page: {
-            id:'about', 
-            title: 'About',
-            fx: 'fade',
-            source: 'views/about.html'
+    <div id="login" data-bind="page: {
+            id:'login',
+            title: 'Login',
+            source: 'views/login.html'
         }" >
     </div>
     
-    <div data-bind="page: {
-            id:'leadership', 
-            title: 'Leadership',
-            fx: 'fade',
-            source: 'views/leadership.html'
+    <div id="post" data-bind="page: {
+            id:'post',
+            params: ['group'],
+            title: 'Post',
+            source: 'views/post.html',
+            beforeShow: posts.loadPost
+        }" >
+    </div>
+
+    <div id="photo" data-bind="page: {
+            id:'photo',
+            params: ['group'],
+            title: 'Photo',
+            source: 'views/photo.html',
+            beforeShow: posts.loadPhoto
+        }" >
+    </div>
+
+    <div id="video" data-bind="page: {
+            id:'video',
+            params: ['group'],
+            title: 'Video',
+            source: 'views/video.html'
         }" >
     </div>
     
-    <div data-bind="page: {
-            id:'info', 
-            title: 'App Info',
+    <div id="groups" data-bind="page: {
+            id:'groups',
+            title: 'Groups',
+            source: 'views/groups.html',
+            beforeShow: checkGroups
+        }" >
+    </div>
+
+    <div id="type" data-bind="page: {
+            id:'type',
+            params: ['group'],
+            title: 'Types',
+            source: 'views/type.html'
+        }" >
+    </div>
+
+    <div id="settings" data-bind="page: {
+            id:'settings',
+            title: 'Settings',
+            source: 'views/settings.html'
+        }" >
+    </div>
+
+    <div id="debug" data-bind="page: {
+            id:'debug',
+            title: 'Home',
             fx: 'fade',
-            source: 'views/info.html'
+            source: 'views/debug.html',
+            beforeShow: fire
         }" >
     </div>
     
-    <script type="text/html" id="dropdown">
-        <ul class="uk-nav">
-            <li><a href="#!/about"><i class="uk-icon-question-circle"></i> About</a></li>
-            <li><a href="#!/leadership"><i class="uk-icon-user"></i> Leadership</a></li>
-            <li><a href="#!/info"><i class="uk-icon-info-circle"></i> App Info</a></li>
-            <li><a href="#!/start"><i class="uk-icon-calendar"></i> Today's Prayer</a></li>
-        </ul>
+    <script type="text/html" id="footer_template">
+        <div class="footer">
+            <div class="uk-grid">
+                <div class="uk-width-1-5">&nbsp;</div>
+                <div class="uk-width-1-5 uk-text-center">
+                    <a href="#!/start" class="uk-icon-home uk-icon-large"></a>
+                </div>
+                <div class="uk-width-1-5 uk-text-center">
+                    <a data-bind="click: posts.create" class="uk-icon-comments uk-icon-large uk-width-1-1" id="post_button"></a>
+                </div>
+                <div class="uk-width-1-5 uk-text-center">
+                    <a href="#!/settings" class="uk-icon-cog uk-icon-large"></a>
+                </div>
+                <div class="uk-width-1-5">&nbsp;</div>
+            </div>
+        </div>
     </script>
+
 
     <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>

@@ -26,6 +26,7 @@ module.exports = function(grunt) {
                 },
                 src: [
                     "./www/js/lib/jquery-2.1.0.min.js",
+                    "./www/js/lib/jquery.validate.min.js",
                     "./www/js/lib/knockout-3.1.0.js",
                     "./www/js/lib/google.fastbutton.js",
                     "./www/js/lib/pager.min.js",

@@ -1,0 +1,32 @@
+<div class="uk-container uk-container-center">
+    <div class="uk-grid">
+        <div class="uk-width-1-1">
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="uk-icon-edit"></i>
+                    <h3>Login</h3>
+                    <div class="uk-button-group uk-float-right">
+                        <a href="#" class="uk-button"><i class="uk-icon-edit"></i></a>
+                    </div>
+                </div>
+                <div class="widget-content">
+                    <p>To use this app, you must have a user on a GreyBack powered site. Please use your GreyBack login credentials below.</p>
+                    <form id="user_login" data-bind="submit: user.login" class="uk-form">
+                        <div class="uk-form-row">
+                            <input type="text" name="email" placeholder="Email Address" class="uk-width-1-1" />
+                        </div>
+                        <div class="uk-form-row">
+                            <input type="password" name="password" placeholder="Password" class="uk-width-1-1" />
+                        </div>
+                        <div class="uk-form-row">
+                            <input id="login_domain" type="text" name="domain" placeholder="Domain: e.g. greyback.net" class="uk-width-1-1" />
+                        </div>
+                        <div class="uk-form-row">
+                            <input type="submit" value="Login" class="uk-button uk-width-1-1" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

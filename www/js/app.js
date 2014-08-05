@@ -1,31 +1,38 @@
-var DOMAIN = 'http://empower21.greyback.net/'
-    //DEVELOPMENT
-    var devtest = /localhost/.test(window.location.hostname);
-    if(devtest) {
-        DOMAIN = 'http://localhost/empower21_api/';
-        isMobile = false;
-    }
-    devtest = /threeleaf/.test(window.location.hostname);
-    if(devtest) {
-        DOMAIN = 'http://office.threeleaf.net/empower21_api/';
-        isMobile = false;
-    }
-
 function AppViewModel() {
     var self = this;
+    self.user = new User();
     self.posts = new Posts();
     self.logfile = ko.observableArray([]);
+
+    self.init = function() {
+        if(self.user.user_id === null) {
+            router.loadPage('login');
+        } else {
+            self.posts.update(self.user.user_id);
+        }
+    }
+    //self.init();
+
     self.log = function(data) {
         self.logfile.push(data);
+        router.loadPage('debug');
     }
-    self.today = function(data) {
-       //viewModel.posts.today();
+
+    self.fire = function(data) {
+       console.log('fire');
+    }
+
+    self.checkGroups = function() {
+        if(self.posts.groups().length == 0) {
+            router.loadPage('start');
+        }
     }
 }
 
 //INIT
 router = new Router();
 var viewModel = new AppViewModel();
+viewModel.init();
 $(function() {
     pager.Href.hash = '#!/';
     pager.extendWithPage(viewModel);

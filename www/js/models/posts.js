@@ -1,62 +1,172 @@
 //POSTS
 var Posts = function() {
-    self = this;
+    var self = this;
     self.latest = ko.observableArray([]);
-    self.selected = ko.observable();
-    self.selectedIndex = ko.observable(0);
+    self.groups = ko.observableArray([]);
+    self.selectedGroup = null;
+    self.photo = null;
+    self.image_progress = ko.observable(30);
+    var quality = {
+        quality:75,
+        destinationType : 1,
+        targetHeight:600,
+        targetWidth:600,
+        saveToPhotoAlbum: true
+    };
+
     self.init = function() {
-        router.load('posts/index',null,function(data) {
-            var today = new Date();
-            var today = today.getFullYear()+'-'+(('0'+(today.getMonth()+1)).slice(-2))+'-'+(('0'+today.getDate()).slice(-2));
-            var indexCounter = 0;
-            var foundDay = false;
-            $.each(data.posts,function(index,item) {
-                post = {
-                    id: item.Post.id,
-                    title: item.Post.title,
-                    verse: item.Post.verse,
-                    reference: item.Post.reference,
-                    prayer: item.Post.prayer,
-                    day: item.Post.day,
-                    month: item.Post.month
-                };
-                self.latest.push(post);
-                if(today === item.Post.start) {
-                    foundDay = true;
-                    self.selectedIndex(indexCounter);
-                }
-                indexCounter++;
-            });
-            if(!foundDay) {
-                self.selectedIndex(self.latest().length - 1);
-            }
-            self.selected(self.latest()[self.selectedIndex()]);
+        //load latest
+    }
+
+    self.update = function() {
+        router.load('latest/'+viewModel.user.user_id,null,self.updateProcess);
+    }
+
+    self.updateProcess = function(data) {
+        self.latest([]);
+        $.each(data.data, function(index,item) {
+            self.latest.push(item);
         });
+    }
+
+    self.create = function() {
+        //check groups
+        router.load('categories/'+viewModel.user.user_id,null,self.createProcess);
+    }
+
+    self.createProcess = function(data) {
+        self.groups([]);
+        if(data.data.length > 0) {
+            if(data.data.length == 1) {
+                self.selectedGroup = item.OrganizationDepartment.id;
+                router.loadPage('type?group='+item.OrganizationDepartment.id);
+            } else {
+                $.each(data.data,function(index,item) {
+                    self.groups.push({
+                        title: item.OrganizationDepartment.title,
+                        id: item.OrganizationDepartment.id
+                    });
+                });
+                router.loadPage('groups');
+            }
+        } else {
+            navigator.notification.alert('Your user does not have access to any Categories to post to. Please contact your administrator.');
+            router.loadPage('start');
+        }
+    }
+
+    self.loadPost = function() {
+        $('#form_post').validate({
+            submitHandler: function(data) {
+                self.formPost(data);
+            }
+        });
+    }
+
+    self.formPost = function(formData) {
+        router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
+            self.update();
+            router.loadPage('start');
+        });
+    }
+
+    self.loadPhoto = function() {
+        $('#form_photo').validate({
+            submitHandler: function(data) {
+                self.formPhoto(data);
+            }
+        });
+    }
+
+    self.formPhoto = function(formData) {
+        console.log($(formData).serializeArray());
+        var deferred = [];
+        //UPLOAD PHOTO
+        deferred.push(self.image_upload(self.photo));
+        console.log($(formData).serializeArray());
+        return false;
+        //UPLOAD POST
+        deferred.push(router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
+            self.update();
+            router.loadPage('start');
+        }));
+    }
+
+    self.takePhoto = function() {
+        quality.sourceType = Camera.PictureSourceType.CAMERA;
+        navigator.camera.getPicture(self.processPhoto,null,quality);
+    }
+
+    self.getPhoto = function() {
+        quality.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
+        navigator.camera.getPicture(self.processPhoto,null,quality);
+    }
+
+    self.image_upload = function(imageURI) {
+        return $.Deferred(function() {
+            var defself = this;
+            try {
+                var ft = new FileTransfer();
+                var options = new FileUploadOptions();
+                var key = Date.now();
+                options.fileKey = 'image';
+                options.fileName = key+'.jpg';
+                options.mimeType = "image/jpeg";
+                options.params = {
+                        user:viewModel.user.user_id
+                };
+                options.chunkedMode = true;
+                ft.upload(
+                    imageURI,
+                    'http://'+viewModel.user.domain+'/ajax/plugin/media/media/uploader/MediaImage/?uploader='+filename,
+                    function(response) {
+                        viewModel.log(key + ' finished uploading');
+                        defself.resolve();
+                    },
+                    function(error) {
+                        switch(error.code) {
+                            case FileTransferError.FILE_NOT_FOUND_ERR:
+                                reason = 'File not found.';
+                                break;
+                            case FileTransferError.INVALID_URL_ERR:
+                                reason = 'Invalid URL.';
+                                break;
+                            case FileTransferError.CONNECTION_ERR:
+                                reason = 'Connection Problem.';
+                                break;
+                            case FileTransferError.ABORT_ERR:
+                                reason = 'Transfer Aborted.';
+                                break;
+                        }
+                        viewModel.log('ERROR: '+item.data.claimFileID+' had an error uploading: ' + reason + '<br />' + error.source + ':' + error.target + ':' + error.http_status);
+                        defself.resolve();
+                    },
+                    options
+                );
+
+                ft.onprogress = function(progressEvent) {
+                    if (progressEvent.lengthComputable) {
+                        var percentageComplete = progressEvent.loaded / progressEvent.total;
+                        self.image_progress(percentageComplete * 100);
+                    }
+                }
+            } catch(e) {
+                console.log(e);
+                viewModel.log(e);
+            }
+        });
+    }
         
+    self.processPhoto = function(imageURI) {
+        $('#photo_thumbnail').attr('src',imageURI);
+        self.photo = imageURI;
     }
     
-    self.today = function() {
-        self.selectedIndex(self.latest().length - 1);
-        self.selected(self.latest()[self.selectedIndex()]);
+    self.formVideo = function() {
+
     }
     
     self.init();
-    self.next = function() {
-        var next = self.selectedIndex() - 1;
-        if(next < 0) {
-            next = 0;
-        }
-        self.selected(self.latest()[next]);
-        self.selectedIndex(next);
-    }
-    
-    self.prev = function() {
-        var first = self.latest().length - 1;
-        var prev = self.selectedIndex() + 1;
-        if(prev > first) {
-            prev = first;
-        }
-        self.selected(self.latest()[prev]);
-        self.selectedIndex(prev);
-    }
+    //$('input[type=submit]').attr('disabled','disabled')
+    //$('input[type=submit]').attr('disabled',false)
 }

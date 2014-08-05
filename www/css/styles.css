@@ -6517,13 +6517,121 @@ a.uk-thumbnail:focus {
   font-family: 'LatoLightItalic';
   src: url('../fonts/Lato-LightItalic.ttf') format('truetype');
 }
+.widget {
+  position: relative;
+  clear: both;
+  width: auto;
+  margin-bottom: 2em;
+}
+.widget-header {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  background-image: linear-gradient(to bottom, #fafafa, #e9e9e9);
+  border: 1px solid #D5D5D5;
+  -webkit-background-clip: padding-box;
+}
+.widget-header h3 {
+  position: relative;
+  top: -2px;
+  left: 10px;
+  display: inline-block;
+  margin: 10px 3em 10px 0;
+  font-size: 14px;
+  font-family: 'LatoBlack';
+  color: #555;
+  line-height: 18px;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+.widget-header [class^="icon-"],
+.widget-header [class*=" icon-"],
+.widget-header [class^="uk-icon-"],
+.widget-header [class*=" uk-icon-"] {
+  display: inline-block;
+  margin-left: 13px;
+  margin-right: -2px;
+  font-size: 16px;
+  color: #555;
+  vertical-align: middle;
+}
+.widget-header a [class^="icon-"],
+.widget-header a [class*=" icon-"],
+.widget-header a [class^="uk-icon-"],
+.widget-header a [class*=" uk-icon-"] {
+  margin: 0;
+}
+.widget-content {
+  padding: 20px 15px 15px;
+  background: #FFF;
+  border: 1px solid #D5D5D5;
+}
+.widget-header + .widget-content {
+  border-top: none;
+}
+.widget-nopad .widget-content {
+  padding: 0;
+}
+/* Widget Content Clearfix */
+.widget-content:before,
+.widget-content:after {
+  content: "";
+  display: table;
+}
+.widget-content:after {
+  clear: both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.widget-content {
+  zoom: 1;
+}
+.widget .navbar {
+  margin-bottom: 0;
+}
+.widget-header .search {
+  padding: 5px;
+}
+.widget-header .search input {
+  vertical-align: top;
+}
+.widget-header .uk-button-group {
+  padding: 5px;
+}
+/* Widget Table */
+.widget-table .widget-content {
+  padding: 0;
+}
+.widget-table .table {
+  margin-bottom: 0;
+  border: none;
+}
+.widget-table .table tr td:first-child {
+  border-left: none;
+}
+.widget-table .table tr th:first-child {
+  border-left: none;
+}
+/* Widget Plain */
+.widget-plain {
+  background: transparent;
+  border: none;
+}
+.widget-plain .widget-content {
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+/* Widget Box */
+.widget-box .widget-content {
+  background: #E3E3E3;
+  background: #FFF;
+}
 body {
-  background: #85819b;
-  color: #ffffff;
+  background: #555555;
+  color: #555555;
   -webkit-overflow-scrolling: touch;
 }
 a {
-  color: #ffffff;
+  color: #555555;
 }
 body,
 h1,
@@ -6532,9 +6640,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "LatoLight";
-  font-size: 18px;
-  color: #ffffff;
+  font-family: "LatoRegular";
+  color: #555555;
 }
 h1,
 h2,
@@ -6563,7 +6670,7 @@ a:hover {
   font-size: 1.2em;
 }
 #spacer {
-  background: #ffffff;
+  background: #000000;
   z-index: 100;
   position: fixed;
   top: 0;
@@ -6576,9 +6683,18 @@ a:hover {
   top: 20px;
   left: 0;
   width: 100%;
+  z-index: 100;
   line-height: 42px;
-  background: #686584;
+  background: #1b1b1b;
   color: #ffffff;
+}
+.uk-navbar #menu_button {
+  display: block;
+  padding: 0;
+  font-size: 20px;
+  position: absolute;
+  left: 14px;
+  top: 3px;
 }
 .uk-navbar .uk-navbar-center {
   margin-top: 10px;
@@ -6589,7 +6705,6 @@ a:hover {
 }
 .uk-navbar img {
   max-height: 90px;
-  margin: 5px;
 }
 .uk-dropdown {
   margin-top: 0;
@@ -6598,7 +6713,7 @@ a:hover {
   width: 60px;
   height: 52px;
   padding-top: 8px;
-  background: #686584;
+  background: #1b1b1b;
 }
 .date_circle .month {
   font-size: 12px;
@@ -6609,7 +6724,7 @@ a:hover {
   /*         font-family: HelveticaNeue-CondensedBlack; */
 }
 .uk-container {
-  padding: 80px 25px 25px;
+  padding: 100px 25px;
   -webkit-overflow-scrolling: touch;
 }
 .uk-container .uk-grid {
@@ -6618,32 +6733,38 @@ a:hover {
 .uk-container .uk-navbar .uk-grid {
   margin-top: 0;
 }
-#home .uk-container {
-  padding: 130px 25px;
-}
-#footer {
+.footer {
   font-size: 12px;
   width: 100%;
-  background: #686584;
+  background: #1b1b1b;
   color: #ffffff;
   position: fixed;
   bottom: 0;
 }
-#footer a {
+.footer a {
+  color: #ffffff;
+  display: block;
+  line-height: 50px;
+}
+.footer #post_button {
+  background: #0088cc;
   color: #ffffff;
 }
-#footer > div {
-  padding: 15px;
-}
 .uk-nav a,
-#footer .uk-nav a {
-  color: #686584;
+.footer .uk-nav a {
+  color: #1b1b1b;
   font-size: 18px;
   line-height: 22px;
 }
 .uk-nav a i,
-#footer .uk-nav a i {
+.footer .uk-nav a i {
   width: 20px;
+}
+#loading {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: none;
 }
 /*
 @import "responsive_large.less";

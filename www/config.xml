@@ -3,13 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "net.greyback.empower21"
-        version   = "1.0.3">
+        id        = "net.greyback.community"
+        version   = "2.0.0">
 
-    <name>Empower21</name>
+    <name>GreyBack App</name>
 
     <description>
-        Prayer App for Christ For The Nations
+        App to post to GreyBack Community Feed
     </description>
 
     <author href="http://greyback.net" email="info@greyback.net">
@@ -37,7 +37,6 @@
     <preference name="webviewbounce"              value="false" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
     <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
     <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
-    <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
     <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
     <preference name="exit-on-suspend"            value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
     <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
@@ -87,9 +86,7 @@
 
         Otherwise, you can specify specific domains:
     -->
-    <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
-    <access origin="http://empower21.greyback.net" />
-    <access origin="fonts.googleapis.com" />
+    <access origin="*"/> <!-- allow local pages -->
     <!--
         <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
         <access origin="http://phonegap.com" subdomains="true" />  - same as above, but including subdomains, such as http://build.phonegap.com/

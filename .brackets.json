@@ -1,0 +1,21 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt-contrib-concat/tasks/lib/comment.js",
+        "/Users/tonymccallie/Sites/greyback_app/app/www/uikit/js/utility.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/pause-resume.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/readme-issue.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/root-nomount.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/root.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/stat.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/zz-cleanup.js",
+        "/Users/tonymccallie/Sites/greyback_app/www/js/models/user.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.min.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.underscore.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.underscore.min.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/lodash.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/test/findup-sync_test.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/getobject/Gruntfile.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/getobject/lib/getobject.js"
+    ]
+}
