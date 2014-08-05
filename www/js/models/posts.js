@@ -82,6 +82,7 @@ var Posts = function() {
         var deferred = [];
         //UPLOAD PHOTO
         deferred.push(self.image_upload(self.photo));
+        console.log(['LOG',deferred,$(formData).serializeArray()])
         return false;
         //UPLOAD POST
         deferred.push(router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
@@ -116,7 +117,7 @@ var Posts = function() {
                 options.chunkedMode = true;
                 ft.upload(
                     imageURI,
-                    'http://'+viewModel.user.domain+'/ajax/plugin/media/media/uploader/MediaImage/?uploader='+filename,
+                    'http://'+viewModel.user.domain+'/ajax/plugin/media/media/uploader/MediaImage/?uploader='+options.filename,
                     function(response) {
                         viewModel.log(key + ' finished uploading');
                         defself.resolve();
