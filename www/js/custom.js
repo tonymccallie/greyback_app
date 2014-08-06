@@ -2724,7 +2724,6 @@ var Posts = function() {
 
     self.getPhoto = function() {
         quality.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
-        quality.sourceType = Camera.PictureSourceType.CAMERA;
         quality.saveToPhotoAlbum = false;
         navigator.camera.getPicture(self.processPhoto,null,quality);
     }

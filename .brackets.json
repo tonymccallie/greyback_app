@@ -25,6 +25,7 @@
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/00-setup.js",
         "/Users/tonymccallie/Sites/greyback_app/www/js/custom.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/graceful-fs.js",
-        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/test/open.js"
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/test/open.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/test/ulimit.js"
     ]
 }
