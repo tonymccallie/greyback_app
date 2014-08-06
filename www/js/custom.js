@@ -2751,6 +2751,7 @@ var Posts = function() {
                             try {
                                 json = JSON.parse(data.response);
                                 $('#image_id').val(json.id);
+                                viewModel.log([json,json.id]);
                             } catch(e) {
                                 viewModel.log(e);
                             }
