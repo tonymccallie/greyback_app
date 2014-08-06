@@ -80,14 +80,16 @@ var Posts = function() {
     }
 
     self.formPhoto = function(formData) {
-        var deferred = [];
-        //UPLOAD PHOTO
-        deferred.push(self.image_upload(self.photo));
-        //UPLOAD POST
-        deferred.push(router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
-            self.update();
-            router.loadPage('start');
-        }));
+        $.when(
+            //UPLOAD PHOTO
+            self.image_upload(self.photo);
+        ).then(
+            //UPLOAD POST
+            router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
+                self.update();
+                router.loadPage('start');
+            }));
+        );
     }
 
     self.takePhoto = function() {
@@ -124,14 +126,13 @@ var Posts = function() {
                             try {
                                 json = JSON.parse(data.response);
                                 $('#image_id').val(json.id);
-                                viewModel.log([json,json.id]);
+                                defself.resolve();
                             } catch(e) {
                                 viewModel.log(e);
                             }
                         } else {
                             navigator.notification.alert('There was an error communicating with the server.');
                         }
-                        defself.resolve();
                     },
                     function(error) {
                         switch(error.code) {
@@ -149,7 +150,6 @@ var Posts = function() {
                                 break;
                         }
                         viewModel.log('ERROR: '+item.data.claimFileID+' had an error uploading: ' + reason + '<br />' + error.source + ':' + error.target + ':' + error.http_status);
-                        defself.resolve();
                     },
                     options
                 );
