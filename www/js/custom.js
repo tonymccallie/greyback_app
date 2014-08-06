@@ -2709,8 +2709,6 @@ var Posts = function() {
         var deferred = [];
         //UPLOAD PHOTO
         deferred.push(self.image_upload(self.photo));
-        console.log(['LOG',deferred,$(formData).serializeArray()])
-        return false;
         //UPLOAD POST
         deferred.push(router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
             self.update();
@@ -2744,10 +2742,18 @@ var Posts = function() {
                 options.chunkedMode = true;
                 ft.upload(
                     imageURI,
-                    'http://'+viewModel.user.domain+'/ajax/plugin/media/media/uploader/MediaImage/?uploader='+options.filename,
-                    function(response) {
-                        console.log(response);
-                        viewModel.log(key + ' finished uploading');
+                    'http://'+viewModel.user.domain+'/ajax/plugin/media/media/uploader/MediaImage/?uploader='+options.fileName,
+                    function(data) {
+                        if(data.responseCode == 200) {
+                            try {
+                                json = JSON.parse(response.response);
+                                $('#image_id').val(json.id);
+                            } catch(e) {
+                                viewModel.log(e);
+                            }
+                        } else {
+                            navigator.notification.alert('There was an error communicating with the server.');
+                        }
                         defself.resolve();
                     },
                     function(error) {

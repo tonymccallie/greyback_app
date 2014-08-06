@@ -17,6 +17,10 @@
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/test/findup-sync_test.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/getobject/Gruntfile.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/getobject/lib/getobject.js",
-        "/Users/tonymccallie/Sites/greyback_app/platforms/ios/www/uikit/js/utility.js"
+        "/Users/tonymccallie/Sites/greyback_app/platforms/ios/www/uikit/js/utility.js",
+        "/Users/tonymccallie/Sites/greyback_app/plugins/org.apache.cordova.file/www/ubuntu/fileSystems-roots.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/getobject/test/namespace_test.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/examples/g.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/examples/usr-local.js"
     ]
 }
