@@ -27,6 +27,7 @@
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/graceful-fs.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/test/open.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/test/ulimit.js",
-        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/inherits/inherits.js"
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/inherits/inherits.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/00-setup.js"
     ]
 }

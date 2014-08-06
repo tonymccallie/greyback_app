@@ -80,10 +80,8 @@ var Posts = function() {
     }
 
     self.formPhoto = function(formData) {
-        $.when(function() {
-            //UPLOAD PHOTO
-            self.image_upload(self.photo);
-        }).then(function() {
+        //single option when must be deferred or will auto pass
+        $.when(self.image_upload(self.photo)).then(function() {
             //UPLOAD POST
             router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
                 self.update();
