@@ -80,16 +80,16 @@ var Posts = function() {
     }
 
     self.formPhoto = function(formData) {
-        $.when(
+        $.when(function() {
             //UPLOAD PHOTO
             self.image_upload(self.photo);
-        ).then(
+        }).then(function() {
             //UPLOAD POST
             router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
                 self.update();
                 router.loadPage('start');
-            }));
-        );
+            });
+        });
     }
 
     self.takePhoto = function() {
