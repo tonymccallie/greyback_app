@@ -91,11 +91,14 @@ var Posts = function() {
 
     self.takePhoto = function() {
         quality.sourceType = Camera.PictureSourceType.CAMERA;
+        quality.saveToPhotoAlbum = true;
         navigator.camera.getPicture(self.processPhoto,null,quality);
     }
 
     self.getPhoto = function() {
         quality.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
+        quality.sourceType = Camera.PictureSourceType.CAMERA;
+        quality.saveToPhotoAlbum = false;
         navigator.camera.getPicture(self.processPhoto,null,quality);
     }
 
@@ -119,7 +122,7 @@ var Posts = function() {
                     function(data) {
                         if(data.responseCode == 200) {
                             try {
-                                json = JSON.parse(response.response);
+                                json = JSON.parse(data.response);
                                 $('#image_id').val(json.id);
                             } catch(e) {
                                 viewModel.log(e);
