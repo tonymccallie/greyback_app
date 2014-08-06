@@ -2632,7 +2632,8 @@ var Posts = function() {
     self.groups = ko.observableArray([]);
     self.selectedGroup = null;
     self.photo = null;
-    self.image_progress = ko.observable(30);
+    self.image_progress = ko.observable(0);
+    self.video_progress = ko.observable(0);
     var quality = {
         quality:75,
         destinationType : 1,
@@ -2735,7 +2736,7 @@ var Posts = function() {
                 var ft = new FileTransfer();
                 var options = new FileUploadOptions();
                 var key = Date.now();
-                options.fileKey = 'image';
+                options.fileKey = 'media';
                 options.fileName = key+'.jpg';
                 options.mimeType = "image/jpeg";
                 options.params = {
