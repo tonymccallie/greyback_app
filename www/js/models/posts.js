@@ -174,6 +174,7 @@ var Posts = function() {
 	}
 	
 	self.loadVideo = function() {
+console.log('FIRE loadvideo');
 		$('#form_video').validate({
 			submitHandler: function(data) {
 				self.formVideo(data);
@@ -182,41 +183,56 @@ var Posts = function() {
 	}
 
 	self.formVideo = function(formData) {
+console.log('FIRE formVideo');
 		//single option when must be deferred or will auto pass
-		$.when(self.video_upload(self.video)).then(function() {
+try {
+		$.when(router.transloadit(self.video)).then(function() {
 			//UPLOAD POST
 			router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
 				self.update();
 				router.loadPage('start');
 			});
 		});
+} catch(e) {
+	console.log(['formVideo',e]);
+}
 	}
 
 	self.takeVideo = function() {
+console.log('FIRE takeVideo');
+try {
 		navigator.device.capture.captureVideo(function(videoObj) {
 			var videoURI = 'file://'+videoObj[0].fullPath;
 			self.processVideo(videoURI);
 		}, function(data) {
 			viewModel.log(['Error capturing video',data]);
 		});
+} catch(e) {
+	console.log(['takeVideo',e]);
+}
 	}
 
 	self.getVideo = function() {
+console.log('FIRE getVideo');
+try {
 		image_options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
 		image_options.mediaType = Camera.MediaType.VIDEO;
 		image_options.saveToPhotoAlbum = false;
 		navigator.camera.getPicture(self.processVideo,null,image_options);
-	}
-
-	self.video_upload = function(videoURI) {
-		return $.Deferred(function() {
-			viewModel.log(videoURI);
-		});
+} catch(e) {
+	console.log(['getVideo',e]);
+}
 	}
 		
 	self.processVideo = function(videoURI) {
+console.log('FIRE processVideo');
+try {
+	
 		$('#video_thumbnail').attr('src',videoURI).attr('poster',null);
 		self.video = videoURI;
+} catch(e) {
+	console.log(['processVideo',e]);
+}
 	}
 	
 	self.init();
