@@ -6745,12 +6745,16 @@ a:hover {
   bottom: 0;
 }
 .footer a {
+  padding-top: 10px;
+  height: 48px;
   color: #ffffff;
   display: block;
-  line-height: 50px;
+}
+.footer a span {
+  display: block;
+  margin-top: 2px;
 }
 .footer #post_button {
-  background: #0088cc;
   color: #ffffff;
 }
 .uk-nav a,

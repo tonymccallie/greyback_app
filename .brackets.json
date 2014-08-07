@@ -42,6 +42,9 @@
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/glob.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/grunt-legacy-util/Gruntfile.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/grunt-legacy-util/index.js",
-        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/Gruntfile-execArgv-child.js"
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/Gruntfile-execArgv-child.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/Gruntfile-execArgv.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/grunt-legacy-util/test/fixtures/Gruntfile-print-text.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/cwd-test.js"
     ]
 }

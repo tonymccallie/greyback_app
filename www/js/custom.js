@@ -2622,6 +2622,96 @@ var Router = function() {
 			alert(e);
 		}
 	}
+	
+	self.transloadit = function(videoURI) {
+		return $.Deferred(function() {
+			var defself = this;
+			var domain = viewModel.user.domain;
+
+
+			//Get Filename
+			var filename = 'greybackapp'+viewModel.user.user_id+'.m4v';
+
+			var url = 'http://'+domain+'/ajax/plugin/media/media/';
+			$.ajax({
+				url: url+'filename/'+filename+'/MediaVideo',
+				success:function(data,status) {
+					if(status == "success") {
+						tmpjson =JSON.parse(data);
+						filename = tmpjson.filename;
+					} else {
+						alert(data);
+					}
+				},
+				async:false
+			});
+
+			dotPos = filename.lastIndexOf(".");
+			basename = filename.substr(0,dotPos);
+
+			params = {
+				"auth":{
+					"key":'4cdc5c60f7284d9cae526bff72ec3211'
+				},
+				"template_id":'9424fda8623a4fd3a7b1f29f4b277d84',
+				notify_url: url+'/complete/MediaVideo',
+				"steps":{},
+				"fields":{
+					"domain":viewModel.domainkey,
+					"basename":basename
+				}
+			};
+
+			params = JSON.stringify(params);
+
+
+			var xhr = new XMLHttpRequest();
+			xhr.upload.onprogress = function(progressEvent) {
+				if (progressEvent.lengthComputable) {
+					var percentageComplete = progressEvent.loaded / progressEvent.total;
+					viewModel.posts.video_progress(percentageComplete * 100);
+				}
+			}
+
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState == 4){
+					if(xhr.responseText) {
+						json = JSON.parse(xhr.responseText);
+						if(json.ok) {
+							$.ajax({
+								url: url+'save/'+filename+'/MediaVideo/'+viewModel.user.user_id,
+								data: json,
+								success:function(data,status) {
+									if(status == "success") {
+										tmpjson = JSON.parse(data);
+										$('#video_id').val(tmpjson["id"]);
+										defself.resolve();
+									} else {
+										alert(status);
+										return;
+									}
+								},
+								async:false
+							});
+						} else {
+							alert(json.message);
+						}
+						$('#video_id').val();
+					} else {
+						alert('error');
+					}
+				}
+			};
+
+			var form = new FormData();
+			form.append('uploader',file.name);
+			form.append('media', file);
+			form.append('params',params);
+			xhr.open("POST", 'http://api2.transloadit.com/assemblies', true);
+			xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+			xhr.send(form);
+		});
+	}
 }
 
 
@@ -2803,6 +2893,8 @@ var Posts = function() {
 	self.loadVideo = function() {
 		$('#form_video').validate({
 			submitHandler: function(data) {
+				console.log(data);
+				return false;
 				self.formVideo(data);
 			}
 		});
@@ -2912,6 +3004,13 @@ var app = {
                     callback(converted);
                 }
             };
+			navigator.device = {
+				capture: {
+					captureVideo: function(success, error) {
+						success([{fullPath:'/Users/tonymccallie/Sites/h264_test_again.mp4'}]);
+					}
+				}
+			};
             navigator.camera = {
                 getPicture: function(callback,ignore,quality) {
                     callback('/advadj/www/img/test_image.jpeg');
@@ -2921,7 +3020,12 @@ var app = {
                 PictureSourceType: {
                     PHOTOLIBRARY:0,
                     CAMERA:1
-                }
+                },
+				MediaType: {
+					PICTURE: 0,
+					VIDEO: 1,
+					ALLMEDIA : 2
+				}
             };
             LocalFileSystem = {
                 PERSISTENT:1

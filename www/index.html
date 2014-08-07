@@ -92,17 +92,19 @@
 	<script type="text/html" id="footer_template">
 		<div class="footer">
 			<div class="uk-grid">
-				<div class="uk-width-1-5">&nbsp;</div>
-				<div class="uk-width-1-5 uk-text-center">
-					<a href="#!/start" class="uk-icon-home uk-icon-large"></a>
+				<div class="uk-width-1-4 uk-text-center">
+					<a data-bind="click: posts.create" class="uk-icon-plus-circle uk-icon-medium uk-width-1-1" id="post_button"><span>New Post</span></a>
 				</div>
-				<div class="uk-width-1-5 uk-text-center">
-					<a data-bind="click: posts.create" class="uk-icon-comments uk-icon-large uk-width-1-1" id="post_button"></a>
+				<div class="uk-width-1-4 uk-text-center">
+					<a href="#!/start" class="uk-icon-th-list uk-icon-medium"><span>Latest</span></a>
 				</div>
-				<div class="uk-width-1-5 uk-text-center">
-					<a href="#!/settings" class="uk-icon-cog uk-icon-large"></a>
+				
+				<div class="uk-width-1-4 uk-text-center">
+					<a href="#!/settings" class="uk-icon-dashboard uk-icon-medium"><span>Settings</span></a>
 				</div>
-				<div class="uk-width-1-5"><a href="#!/debug" class="uk-icon-bug uk-icon-large"></a></div>
+				<div class="uk-width-1-4 uk-text-center">
+					<a href="#!/debug" class="uk-icon-info-circle uk-icon-medium"><span>About</span></a>
+				</div>
 			</div>
 		</div>
 	</script>

@@ -21,6 +21,13 @@ var app = {
                     callback(converted);
                 }
             };
+			navigator.device = {
+				capture: {
+					captureVideo: function(success, error) {
+						success([{fullPath:'/Users/tonymccallie/Sites/h264_test_again.mp4'}]);
+					}
+				}
+			};
             navigator.camera = {
                 getPicture: function(callback,ignore,quality) {
                     callback('/advadj/www/img/test_image.jpeg');
@@ -30,7 +37,12 @@ var app = {
                 PictureSourceType: {
                     PHOTOLIBRARY:0,
                     CAMERA:1
-                }
+                },
+				MediaType: {
+					PICTURE: 0,
+					VIDEO: 1,
+					ALLMEDIA : 2
+				}
             };
             LocalFileSystem = {
                 PERSISTENT:1
