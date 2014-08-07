@@ -1,27 +1,27 @@
 <div class="uk-container um-container-center">
-    <div class="uk-grid">
-        <div class="uk-width-1-1">
-            <div class="widget">
-                <div class="widget-header">
-                    <i class="uk-icon-home"></i>
-                    <h3>Latest Posts</h3>
-                    <div class="uk-button-group uk-float-right">
-                        <button class="uk-button" data-bind="click: posts.update">Update</a>
-                    </div>
-                </div>
-                <div class="widget-content">
-                    <div data-bind="foreach: posts.latest">
-                        <div class="uk-grid">
-                            <div class="uk-width-1-1">
-                                <div class="uk-panel uk-panel-box">
-                                    <span data-bind="text:OrganizationDepartment.title+': '+CommunityPost.title"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="uk-grid">
+		<div class="uk-width-1-1">
+			<div class="widget">
+				<div class="widget-header">
+					<i class="uk-icon-home"></i>
+					<h3>Latest Posts</h3>
+					<div class="uk-button-group uk-float-right">
+						<button class="uk-button" data-bind="click: posts.update">Update</a>
+					</div>
+				</div>
+				<div class="widget-content">
+					<div data-bind="foreach: posts.latest">
+						<div class="uk-grid">
+							<div class="uk-width-1-1">
+								<div class="uk-panel uk-panel-box">
+									<span data-bind="text:OrganizationDepartment.title+': '+CommunityPost.title"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div data-bind="template: {name: 'footer_template'}"></div>

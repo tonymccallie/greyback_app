@@ -1,24 +1,24 @@
 <div class="uk-container um-container-center">
-    <div class="uk-grid">
-        <div class="uk-width-1-1">
-            <div class="widget">
-                <div class="widget-header">
-                    <i class="uk-icon-group"></i>
-                    <h3>Choose Category</h3>
-                </div>
-                <div class="widget-content">
-                    <div data-bind="foreach: posts.groups">
-                        <div class="uk-grid">
-                            <div class="uk-width-1-1">
-                                <div class="uk-panel uk-panel-box">
-                                    <a data-bind="text: title, attr:{ href:'#!/type?group='+id }"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="uk-grid">
+		<div class="uk-width-1-1">
+			<div class="widget">
+				<div class="widget-header">
+					<i class="uk-icon-group"></i>
+					<h3>Choose Category</h3>
+				</div>
+				<div class="widget-content">
+					<div data-bind="foreach: posts.groups">
+						<div class="uk-grid">
+							<div class="uk-width-1-1">
+								<div class="uk-panel uk-panel-box">
+									<a data-bind="text: title, attr:{ href:'#!/type?group='+id }"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div data-bind="template: {name: 'footer_template'}"></div>

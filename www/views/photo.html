@@ -1,47 +1,47 @@
 <div class="uk-container um-container-center">
-    <div class="uk-grid">
-        <div class="uk-width-1-1">
-            <div class="widget">
-                <div class="widget-header">
-                    <i class="uk-icon-picture-o"></i>
-                    <h3>Photo</h3>
-                </div>
-                <div class="widget-content">
-                    <form id="form_photo" class="uk-form">
-                        <div class="uk-form-row">
-                            <input type="hidden" name="department_id" data-bind="value: group" required />
-                            <input type="hidden" name="type" value="photo" required />
-                            <input type="hidden" name="alert" value="0"/>
-                            <input id="image_id" type="hidden" name="image_id" />
-                            <input type="text" placeholder="Title" name="title" class="uk-width-1-1" required />
-                        </div>
-                        <div class="uk-form-row">
-                            <div class="uk-grid">
-                                <div class="uk-width-1-3">
-                                    <img id="photo_thumbnail" src="img/empty_photo.png">
-                                </div>
-                                <div class="uk-width-2-3">
-                                    <a data-bind="fastClick: posts.takePhoto" class="uk-button uk-width-1-1">Take a Photo</a><br /><br />
-                                    <a data-bind="fastClick: posts.getPhoto" class="uk-button uk-width-1-1">Choose Existing</a>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="uk-form-row">
+	<div class="uk-grid">
+		<div class="uk-width-1-1">
+			<div class="widget">
+				<div class="widget-header">
+					<i class="uk-icon-picture-o"></i>
+					<h3>Photo</h3>
+				</div>
+				<div class="widget-content">
+					<form id="form_photo" class="uk-form">
+						<div class="uk-form-row">
+							<input type="hidden" name="department_id" data-bind="value: group" required />
+							<input type="hidden" name="type" value="photo" required />
+							<input type="hidden" name="alert" value="0"/>
+							<input id="image_id" type="hidden" name="image_id" />
+							<input type="text" placeholder="Title" name="title" class="uk-width-1-1" required />
+						</div>
+						<div class="uk-form-row">
+							<div class="uk-grid">
+								<div class="uk-width-1-3">
+									<img id="photo_thumbnail" src="img/empty_photo.png">
+								</div>
+								<div class="uk-width-2-3">
+									<a data-bind="fastClick: posts.takePhoto" class="uk-button uk-width-1-1">Take a Photo</a><br /><br />
+									<a data-bind="fastClick: posts.getPhoto" class="uk-button uk-width-1-1">Choose Existing</a>
+								</div>
+							</div>
+						</div>
+						 <div class="uk-form-row">
 
-                        </div>
-                        <div class="uk-form-row">
-                            <textarea class="uk-width-1-1" rows="6" name="body" placeholder="Caption"></textarea>
-                        </div>
-                        <div class="uk-progress">
-                            <div id="photo_progress" class="uk-progress-bar" data-bind="attr: { style: 'width:'+posts.image_progress()+'%' }">&nbsp;</div>
-                        </div>
-                        <div class="uk-form-row">
-                            <input type="submit" value="Post" class="uk-button uk-width-1-1" />
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+						</div>
+						<div class="uk-form-row">
+							<textarea class="uk-width-1-1" rows="6" name="body" placeholder="Caption"></textarea>
+						</div>
+						<div class="uk-progress">
+							<div id="photo_progress" class="uk-progress-bar" data-bind="attr: { style: 'width:'+posts.image_progress()+'%' }">&nbsp;</div>
+						</div>
+						<div class="uk-form-row">
+							<input type="submit" value="Post" class="uk-button uk-width-1-1" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div data-bind="template: {name: 'footer_template'}"></div>

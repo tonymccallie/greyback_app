@@ -8,7 +8,6 @@
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/root.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/stat.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/glob/test/zz-cleanup.js",
-        "/Users/tonymccallie/Sites/greyback_app/www/js/models/user.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.min.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.underscore.js",
@@ -28,6 +27,17 @@
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/test/open.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/test/ulimit.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/node_modules/inherits/inherits.js",
-        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/00-setup.js"
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/00-setup.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/bash-comparison.js",
+        "uikit.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/cwd-test.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/mark.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/nocase-nomagic.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/pause-resume.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/root-nomount.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/root.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/zz-cleanup.js",
+        "/Users/tonymccallie/Sites/greyback_app/www/uikit/js/addons/autocomplete.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.compat.min.js"
     ]
 }

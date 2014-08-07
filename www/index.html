@@ -7,108 +7,108 @@
 <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
 <body>
-    <div id="spacer"></div>
-    <nav class="uk-navbar uk-navbar-attached">
-        <div class="uk-grid">
-            <div class="uk-width-1-1 uk-text-center">
-                <i id="loading" class="uk-icon-refresh uk-icon-spin uk-icon-small"></i>
-                <img src="img/logo.png" />
-            </div>
-        </div>
-    </nav>
+	<div id="spacer"></div>
+	<nav class="uk-navbar uk-navbar-attached">
+		<div class="uk-grid">
+			<div class="uk-width-1-1 uk-text-center">
+				<i id="loading" class="uk-icon-refresh uk-icon-spin uk-icon-small"></i>
+				<img src="img/logo.png" />
+			</div>
+		</div>
+	</nav>
 
-    <div id="home" data-bind="page: {
-            id:'start', 
-            title: 'Home',
-            source: 'views/home.html'
-        }" >
-    </div>
+	<div id="home" data-bind="page: {
+			id:'start', 
+			title: 'Home',
+			source: 'views/home.html'
+		}" >
+	</div>
 
-    <div id="login" data-bind="page: {
-            id:'login',
-            title: 'Login',
-            source: 'views/login.html'
-        }" >
-    </div>
-    
-    <div id="post" data-bind="page: {
-            id:'post',
-            params: ['group'],
-            title: 'Post',
-            source: 'views/post.html',
-            beforeShow: posts.loadPost
-        }" >
-    </div>
+	<div id="login" data-bind="page: {
+			id:'login',
+			title: 'Login',
+			source: 'views/login.html'
+		}" >
+	</div>
+	
+	<div id="post" data-bind="page: {
+			id:'post',
+			params: ['group'],
+			title: 'Post',
+			source: 'views/post.html',
+			beforeShow: posts.loadPost
+		}" >
+	</div>
 
-    <div id="photo" data-bind="page: {
-            id:'photo',
-            params: ['group'],
-            title: 'Photo',
-            source: 'views/photo.html',
-            beforeShow: posts.loadPhoto
-        }" >
-    </div>
+	<div id="photo" data-bind="page: {
+			id:'photo',
+			params: ['group'],
+			title: 'Photo',
+			source: 'views/photo.html',
+			beforeShow: posts.loadPhoto
+		}" >
+	</div>
 
-    <div id="video" data-bind="page: {
-            id:'video',
-            params: ['group'],
-            title: 'Video',
-            source: 'views/video.html'
-        }" >
-    </div>
-    
-    <div id="groups" data-bind="page: {
-            id:'groups',
-            title: 'Groups',
-            source: 'views/groups.html',
-            beforeShow: checkGroups
-        }" >
-    </div>
+	<div id="video" data-bind="page: {
+			id:'video',
+			params: ['group'],
+			title: 'Video',
+			source: 'views/video.html'
+		}" >
+	</div>
+	
+	<div id="groups" data-bind="page: {
+			id:'groups',
+			title: 'Groups',
+			source: 'views/groups.html',
+			beforeShow: checkGroups
+		}" >
+	</div>
 
-    <div id="type" data-bind="page: {
-            id:'type',
-            params: ['group'],
-            title: 'Types',
-            source: 'views/type.html'
-        }" >
-    </div>
+	<div id="type" data-bind="page: {
+			id:'type',
+			params: ['group'],
+			title: 'Types',
+			source: 'views/type.html'
+		}" >
+	</div>
 
-    <div id="settings" data-bind="page: {
-            id:'settings',
-            title: 'Settings',
-            source: 'views/settings.html'
-        }" >
-    </div>
+	<div id="settings" data-bind="page: {
+			id:'settings',
+			title: 'Settings',
+			source: 'views/settings.html'
+		}" >
+	</div>
 
-    <div id="debug" data-bind="page: {
-            id:'debug',
-            title: 'Home',
-            fx: 'fade',
-            source: 'views/debug.html',
-            beforeShow: fire
-        }" >
-    </div>
-    
-    <script type="text/html" id="footer_template">
-        <div class="footer">
-            <div class="uk-grid">
-                <div class="uk-width-1-5">&nbsp;</div>
-                <div class="uk-width-1-5 uk-text-center">
-                    <a href="#!/start" class="uk-icon-home uk-icon-large"></a>
-                </div>
-                <div class="uk-width-1-5 uk-text-center">
-                    <a data-bind="click: posts.create" class="uk-icon-comments uk-icon-large uk-width-1-1" id="post_button"></a>
-                </div>
-                <div class="uk-width-1-5 uk-text-center">
-                    <a href="#!/settings" class="uk-icon-cog uk-icon-large"></a>
-                </div>
-                <div class="uk-width-1-5"><a href="#!/debug" class="uk-icon-bug uk-icon-large"></a></div>
-            </div>
-        </div>
-    </script>
+	<div id="debug" data-bind="page: {
+			id:'debug',
+			title: 'Home',
+			fx: 'fade',
+			source: 'views/debug.html',
+			beforeShow: fire
+		}" >
+	</div>
+	
+	<script type="text/html" id="footer_template">
+		<div class="footer">
+			<div class="uk-grid">
+				<div class="uk-width-1-5">&nbsp;</div>
+				<div class="uk-width-1-5 uk-text-center">
+					<a href="#!/start" class="uk-icon-home uk-icon-large"></a>
+				</div>
+				<div class="uk-width-1-5 uk-text-center">
+					<a data-bind="click: posts.create" class="uk-icon-comments uk-icon-large uk-width-1-1" id="post_button"></a>
+				</div>
+				<div class="uk-width-1-5 uk-text-center">
+					<a href="#!/settings" class="uk-icon-cog uk-icon-large"></a>
+				</div>
+				<div class="uk-width-1-5"><a href="#!/debug" class="uk-icon-bug uk-icon-large"></a></div>
+			</div>
+		</div>
+	</script>
 
 
-    <script type="text/javascript" src="phonegap.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="phonegap.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
 </body>
 </html>
