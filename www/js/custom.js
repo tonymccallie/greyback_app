@@ -2820,8 +2820,11 @@ var Posts = function() {
 	}
 
 	self.takeVideo = function() {
-		navigator.device.capture.captureVideo(self.processVideo, function(data) {
-			viewModel.log(data);
+		navigator.device.capture.captureVideo(function(videoObj) {
+			var videoURI = 'file://'+videoObj[0].fullPath;
+			self.processVideo(videoURI);
+		}, function(data) {
+			viewModel.log(['Error capturing video',data]);
 		});
 	}
 
@@ -2841,7 +2844,6 @@ var Posts = function() {
 	self.processVideo = function(videoURI) {
 		$('#video_thumbnail').attr('src',videoURI).attr('poster',null);
 		self.video = videoURI;
-		viewModel.log(videoURI);
 	}
 	
 	self.init();
