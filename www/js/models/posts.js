@@ -214,6 +214,7 @@ var Posts = function() {
 	self.processVideo = function(videoURI) {
 		$('#video_thumbnail').attr('src',videoURI).attr('poster',null);
 		self.video = videoURI;
+		viewModel.log(videoURI);
 	}
 	
 	self.init();
