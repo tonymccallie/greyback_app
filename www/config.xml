@@ -6,7 +6,7 @@
         id        = "net.greyback.community"
         version   = "2.0.0">
 
-    <name>GreyBack App</name>
+    <name>GreyBack</name>
 
     <description>
         App to post to GreyBack Community Feed

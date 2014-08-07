@@ -2893,8 +2893,6 @@ var Posts = function() {
 	self.loadVideo = function() {
 		$('#form_video').validate({
 			submitHandler: function(data) {
-				console.log(data);
-				return false;
 				self.formVideo(data);
 			}
 		});
