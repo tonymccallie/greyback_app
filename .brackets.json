@@ -38,6 +38,7 @@
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/root.js",
         "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/test/zz-cleanup.js",
         "/Users/tonymccallie/Sites/greyback_app/www/uikit/js/addons/autocomplete.js",
-        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.compat.min.js"
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/dist/lodash.compat.min.js",
+        "/Users/tonymccallie/Sites/greyback_app/node_modules/grunt/node_modules/glob/glob.js"
     ]
 }

@@ -202,7 +202,7 @@ var Posts = function() {
 		image_options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
 		image_options.mediaType = Camera.MediaType.VIDEO;
 		image_options.saveToPhotoAlbum = false;
-		navigator.camera.getPicture(self.processPhoto,null,video_options);
+		navigator.camera.getPicture(self.processPhoto,null,image_options);
 	}
 
 	self.video_upload = function(videoURI) {
