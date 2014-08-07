@@ -2839,7 +2839,7 @@ var Posts = function() {
 	}
 		
 	self.processVideo = function(videoURI) {
-		$('#video_thumbnail').attr('src',videoURI);
+		$('#video_thumbnail').attr('src',videoURI).attr('poster',null);
 		self.video = videoURI;
 	}
 	
