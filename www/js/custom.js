@@ -2918,6 +2918,7 @@ var Posts = function() {
 		return $.Deferred(function() {
 			var defself = this;
 			try {
+				$('#loading').show();
 				var ft = new FileTransfer();
 				var options = new FileUploadOptions();
 				var domain = viewModel.user.domain;
@@ -2944,19 +2945,26 @@ var Posts = function() {
 
 				options.chunkedMode = true;
 				
+				
+				viewModel.log('start ft');
 				ft.upload(
 					videoURI,
 					'http://api2.transloadit.com/assemblies',
 					function(data) {
+						viewModel.log('ft success');
 						if(data.responseCode == 200) {
+							$('#loading').fadeOut();
 							try {
 								json = JSON.parse(data.response);
 								if(json.assembly_url) {
+									$('#loading').show();
+									viewModel.log('start save');
 									$.ajax({
 										url: url+'save/'+filename+'/MediaVideo/'+viewModel.user.user_id,
 										data: json,
 										success:function(savedata,status) {
-											console.log(savedata);
+											viewModel.log('save success');
+											$('#loading').fadeOut();
 											if(status == "success") {
 												tmpjson = JSON.parse(savedata);
 												$('#video_id').val(json.id);
@@ -3166,7 +3174,6 @@ function AppViewModel() {
 
 	self.log = function(data) {
 		self.logfile.push(data);
-		router.loadPage('debug');
 	}
 
 	self.fire = function(data) {

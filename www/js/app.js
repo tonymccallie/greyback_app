@@ -15,7 +15,6 @@ function AppViewModel() {
 
 	self.log = function(data) {
 		self.logfile.push(data);
-		router.loadPage('debug');
 	}
 
 	self.fire = function(data) {
