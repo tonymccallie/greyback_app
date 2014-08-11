@@ -215,15 +215,17 @@ try {
 				options.fileName = filename;
 
 				options.params = {
-					"auth":{
-						"key":'4cdc5c60f7284d9cae526bff72ec3211'
-					},
-					"template_id":'9424fda8623a4fd3a7b1f29f4b277d84',
-					notify_url: url+'/complete/MediaVideo',
-					"steps":{},
-					"fields":{
-						"domain":viewModel.domainkey,
-						"basename":basename
+					params: {
+						"auth":{
+							"key":'4cdc5c60f7284d9cae526bff72ec3211'
+						},
+						"template_id":'9424fda8623a4fd3a7b1f29f4b277d84',
+						notify_url: url+'/complete/MediaVideo',
+						"steps":{},
+						"fields":{
+							"domain":viewModel.domainkey,
+							"basename":basename
+						}
 					}
 				};
 				
@@ -251,7 +253,6 @@ try {
 						}
 					},
 					function(error) {
-						console.log(error);
 						switch(error.code) {
 							case FileTransferError.FILE_NOT_FOUND_ERR:
 								reason = 'File not found.';
@@ -266,7 +267,7 @@ try {
 								reason = 'Transfer Aborted.';
 								break;
 						}
-						viewModel.log('ERROR: '+item.data.claimFileID+' had an error uploading: ' + reason + '<br />' + error.source + ':' + error.target + ':' + error.http_status);
+						viewModel.log(error);
 					},
 					options
 				);
