@@ -88,7 +88,7 @@ var Posts = function() {
 			router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
 				self.update();
 				$('#image_id, #photo_title, #photo_text').val('');
-				$('#image_thumbnail').attr('src','img/empty_photo.png');
+				$('#photo_thumbnail').attr('src','img/empty_photo.png');
 				router.loadPage('start');
 			});
 		});
