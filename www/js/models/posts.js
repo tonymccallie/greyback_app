@@ -89,6 +89,7 @@ var Posts = function() {
 				self.update();
 				$('#image_id, #photo_title, #photo_text').val('');
 				$('#photo_thumbnail').attr('src','img/empty_photo.png');
+				self.image_progress(0);
 				router.loadPage('start');
 			});
 		});
@@ -193,6 +194,7 @@ var Posts = function() {
 				self.update();
 				$('#video_id, #video_title, #video_text').val('');
 				$('#video_thumbnail').attr('src','').attr('poster','img/empty_photo.png');
+				self.video_progress(0);
 				router.loadPage('start');
 			});
 		});

@@ -6673,7 +6673,7 @@ a:hover {
   font-size: 1.2em;
 }
 #spacer {
-  background: #555555;
+  background: #000000;
   z-index: 100;
   position: fixed;
   top: 0;

@@ -44,6 +44,7 @@
     <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
     <preference name="android-minSdkVersion"      value="10" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+	<preference name="StatusBarBackgroundColor" value="#000000" />
 
     <!-- Plugins can also be added here. -->
     <!--
@@ -85,6 +86,7 @@
     <gap:plugin name="org.apache.cordova.file-transfer" version="0.4.2" />
 	<gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
 	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
+	<gap:plugin name="com.phonegap.plugin.statusbar" />
     <!--
         Define access to external domains.
 
