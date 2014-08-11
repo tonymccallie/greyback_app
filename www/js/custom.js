@@ -2903,9 +2903,7 @@ var Posts = function() {
 	}
 
 	self.formVideo = function(formData) {
-console.log('FIRE formVideo');
 		//single option when must be deferred or will auto pass
-try {
 		console.log('starting when')
 		$.when(self.video_upload(self.video)).then(function() {
 			//UPLOAD POST
@@ -2914,16 +2912,12 @@ try {
 				router.loadPage('start');
 			});
 		});
-} catch(e) {
-	console.log(['formVideo',e]);
-}
 	}
 
 	self.video_upload = function(videoURI) {
 		return $.Deferred(function() {
 			var defself = this;
 			try {
-				console.log('variables');
 				var ft = new FileTransfer();
 				var options = new FileUploadOptions();
 				var domain = viewModel.user.domain;
@@ -2950,7 +2944,6 @@ try {
 
 				options.chunkedMode = true;
 				
-				console.log('start ft');
 				ft.upload(
 					videoURI,
 					'http://api2.transloadit.com/assemblies',
@@ -2958,7 +2951,6 @@ try {
 						if(data.responseCode == 200) {
 							try {
 								json = JSON.parse(data.response);
-								console.log(json);
 								if(json.assembly_url) {
 									$.ajax({
 										url: url+'save/'+filename+'/MediaVideo/'+viewModel.user.user_id,
@@ -3005,14 +2997,12 @@ try {
 				);
 
 				ft.onprogress = function(progressEvent) {
-					console.log(progressEvent);
 					if (progressEvent.lengthComputable) {
 						var percentageComplete = progressEvent.loaded / progressEvent.total;
 						self.video_progress(percentageComplete * 100);
 					}
 				}
 			} catch(e) {
-				console.log(e);
 				viewModel.log(e);
 			}
 		});
