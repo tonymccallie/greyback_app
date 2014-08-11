@@ -76,6 +76,7 @@ var Router = function() {
 			var filename = 'greybackapp'+viewModel.user.user_id+'.m4v';
 
 			var url = 'http://'+domain+'/ajax/plugin/media/media/';
+try {
 			$.ajax({
 				url: url+'filename/'+filename+'/MediaVideo',
 				success:function(data,status) {
@@ -88,6 +89,9 @@ var Router = function() {
 				},
 				async:false
 			});
+} catch(e) {
+	console.log(['get filename',e]);
+}
 
 			dotPos = filename.lastIndexOf(".");
 			basename = filename.substr(0,dotPos);

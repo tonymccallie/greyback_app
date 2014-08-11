@@ -174,7 +174,6 @@ var Posts = function() {
 	}
 	
 	self.loadVideo = function() {
-console.log('FIRE loadvideo');
 		$('#form_video').validate({
 			submitHandler: function(data) {
 				self.formVideo(data);
@@ -186,7 +185,7 @@ console.log('FIRE loadvideo');
 console.log('FIRE formVideo');
 		//single option when must be deferred or will auto pass
 try {
-		$.when(router.transloadit(self.video)).then(function() {
+		$.when(self.video_upload(self.video)).then(function() {
 			//UPLOAD POST
 			router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
 				self.update();
@@ -198,41 +197,104 @@ try {
 }
 	}
 
+	self.video_upload = function(videoURI) {
+		return $.Deferred(function() {
+			var defself = this;
+			try {
+				var ft = new FileTransfer();
+				var options = new FileUploadOptions();
+				var domain = viewModel.user.domain;
+				var url = 'http://'+domain+'/ajax/plugin/media/media/';
+				var timestamp = Date.now();
+				var basename = 'greybackapp_'+viewModel.user.user_id+'_'+timestamp;
+				var filename = basename+'.m4v';
+				options.fileKey = 'media';
+				options.uploader = 'test';
+				options.fileName = filename;
+
+				options.params = {
+					"auth":{
+						"key":'4cdc5c60f7284d9cae526bff72ec3211'
+					},
+					"template_id":'9424fda8623a4fd3a7b1f29f4b277d84',
+					notify_url: url+'/complete/MediaVideo',
+					"steps":{},
+					"fields":{
+						"domain":viewModel.domainkey,
+						"basename":basename
+					}
+				};
+
+				options.chunkedMode = true;
+				ft.upload(
+					videoURI,
+					'http://api2.transloadit.com/assemblies',
+					function(data) {
+						viewModel.log(data);
+						if(data.responseCode == 200) {
+							try {
+								json = JSON.parse(data.response);
+								$('#video_id').val(json.id);
+								defself.resolve();
+							} catch(e) {
+								viewModel.log(e);
+							}
+						} else {
+							navigator.notification.alert('There was an error communicating with the server.');
+						}
+					},
+					function(error) {
+						switch(error.code) {
+							case FileTransferError.FILE_NOT_FOUND_ERR:
+								reason = 'File not found.';
+								break;
+							case FileTransferError.INVALID_URL_ERR:
+								reason = 'Invalid URL.';
+								break;
+							case FileTransferError.CONNECTION_ERR:
+								reason = 'Connection Problem.';
+								break;
+							case FileTransferError.ABORT_ERR:
+								reason = 'Transfer Aborted.';
+								break;
+						}
+						viewModel.log('ERROR: '+item.data.claimFileID+' had an error uploading: ' + reason + '<br />' + error.source + ':' + error.target + ':' + error.http_status);
+					},
+					options
+				);
+
+				ft.onprogress = function(progressEvent) {
+					if (progressEvent.lengthComputable) {
+						var percentageComplete = progressEvent.loaded / progressEvent.total;
+						self.video_progress(percentageComplete * 100);
+					}
+				}
+			} catch(e) {
+				console.log(e);
+				viewModel.log(e);
+			}
+		});
+	}
+
 	self.takeVideo = function() {
-console.log('FIRE takeVideo');
-try {
 		navigator.device.capture.captureVideo(function(videoObj) {
 			var videoURI = 'file://'+videoObj[0].fullPath;
 			self.processVideo(videoURI);
 		}, function(data) {
 			viewModel.log(['Error capturing video',data]);
 		});
-} catch(e) {
-	console.log(['takeVideo',e]);
-}
 	}
 
 	self.getVideo = function() {
-console.log('FIRE getVideo');
-try {
 		image_options.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
 		image_options.mediaType = Camera.MediaType.VIDEO;
 		image_options.saveToPhotoAlbum = false;
 		navigator.camera.getPicture(self.processVideo,null,image_options);
-} catch(e) {
-	console.log(['getVideo',e]);
-}
 	}
 		
 	self.processVideo = function(videoURI) {
-console.log('FIRE processVideo');
-try {
-	
 		$('#video_thumbnail').attr('src',videoURI).attr('poster',null);
 		self.video = videoURI;
-} catch(e) {
-	console.log(['processVideo',e]);
-}
 	}
 	
 	self.init();
