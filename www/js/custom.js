@@ -2906,6 +2906,7 @@ var Posts = function() {
 console.log('FIRE formVideo');
 		//single option when must be deferred or will auto pass
 try {
+		console.log('starting when')
 		$.when(self.video_upload(self.video)).then(function() {
 			//UPLOAD POST
 			router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
@@ -2922,6 +2923,7 @@ try {
 		return $.Deferred(function() {
 			var defself = this;
 			try {
+				console.log('variables');
 				var ft = new FileTransfer();
 				var options = new FileUploadOptions();
 				var domain = viewModel.user.domain;
@@ -2945,12 +2947,17 @@ try {
 						"basename":basename
 					}
 				};
+				
+				console.log(options);
 
 				options.chunkedMode = true;
+				
+				console.log('start ft');
 				ft.upload(
 					videoURI,
 					'http://api2.transloadit.com/assemblies',
 					function(data) {
+						console.log(data);
 						viewModel.log(data);
 						if(data.responseCode == 200) {
 							try {
@@ -2965,6 +2972,7 @@ try {
 						}
 					},
 					function(error) {
+						console.log(error);
 						switch(error.code) {
 							case FileTransferError.FILE_NOT_FOUND_ERR:
 								reason = 'File not found.';
@@ -2985,6 +2993,7 @@ try {
 				);
 
 				ft.onprogress = function(progressEvent) {
+					console.log(progressEvent);
 					if (progressEvent.lengthComputable) {
 						var percentageComplete = progressEvent.loaded / progressEvent.total;
 						self.video_progress(percentageComplete * 100);
