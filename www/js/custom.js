@@ -2961,7 +2961,7 @@ try {
 								console.log(json);
 								if(json.assembly_url) {
 									$.ajax({
-										url: url+'save/'+fileName+'/MediaVideo/'+viewModel.user.user_id,
+										url: url+'save/'+filename+'/MediaVideo/'+viewModel.user.user_id,
 										data: json,
 										success:function(savedata,status) {
 											console.log(savedata);
