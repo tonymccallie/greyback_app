@@ -13,7 +13,7 @@
 							<input type="hidden" name="type" value="photo" required />
 							<input type="hidden" name="alert" value="0"/>
 							<input id="image_id" type="hidden" name="image_id" />
-							<input type="text" placeholder="Title" name="title" class="uk-width-1-1" required />
+							<input id="photo_title" type="text" placeholder="Title" name="title" class="uk-width-1-1" required />
 						</div>
 						<div class="uk-form-row">
 							<div class="uk-grid">
@@ -30,7 +30,7 @@
 
 						</div>
 						<div class="uk-form-row">
-							<textarea class="uk-width-1-1" rows="6" name="body" placeholder="Caption"></textarea>
+							<textarea id="photo_text" class="uk-width-1-1" rows="6" name="body" placeholder="Caption"></textarea>
 						</div>
 						<div class="uk-progress">
 							<div id="photo_progress" class="uk-progress-bar" data-bind="attr: { style: 'width:'+posts.image_progress()+'%' }">&nbsp;</div>

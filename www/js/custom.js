@@ -2695,6 +2695,7 @@ var Posts = function() {
 	self.formPost = function(formData) {
 		router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
 			self.update();
+			$('#post_title, #post_text').val('');
 			router.loadPage('start');
 		});
 	}
@@ -2713,6 +2714,8 @@ var Posts = function() {
 			//UPLOAD POST
 			router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
 				self.update();
+				$('#image_id, #photo_title, #photo_text').val('');
+				$('#image_thumbnail').attr('src','img/empty_photo.png');
 				router.loadPage('start');
 			});
 		});
@@ -2815,6 +2818,8 @@ var Posts = function() {
 			//UPLOAD POST
 			router.load('add/'+viewModel.user.user_id, $(formData).serialize(),function(data) {
 				self.update();
+				$('#video_id, #video_title, #video_text').val('');
+				$('#video_thumbnail').attr('src','').attr('poster','img/empty_photo.png');
 				router.loadPage('start');
 			});
 		});
@@ -2830,7 +2835,7 @@ var Posts = function() {
 				var domain = viewModel.user.domain;
 				var url = 'http://'+domain+'/ajax/plugin/media/media/';
 				var timestamp = Date.now();
-				var basename = 'greybackapp_'+viewModel.user.user_id+'_'+timestamp;
+				var basename = 'gbapp_'+viewModel.user.user_id+'_'+timestamp;
 				var filename = basename+'.m4v';
 				options.fileKey = 'media';
 				options.uploader = 'test';
@@ -2851,25 +2856,20 @@ var Posts = function() {
 
 				options.chunkedMode = true;
 				
-				
-				viewModel.log('start ft');
 				ft.upload(
 					videoURI,
 					'http://api2.transloadit.com/assemblies',
 					function(data) {
-						viewModel.log('ft success');
 						if(data.responseCode == 200) {
 							$('#loading').fadeOut();
 							try {
 								json = JSON.parse(data.response);
 								if(json.assembly_url) {
 									$('#loading').show();
-									viewModel.log('start save');
 									$.ajax({
 										url: url+'save/'+filename+'/MediaVideo/'+viewModel.user.user_id,
 										data: json,
 										success:function(savedata,status) {
-											viewModel.log(savedata);
 											$('#loading').fadeOut();
 											if(status == "success") {
 												tmpjson = JSON.parse(savedata);
