@@ -43,7 +43,7 @@ var Router = function() {
 				}
 			},
 			complete: function(jqXHR, textStatus, errorThrown) {
-				console.log('complete?');
+				console.log(textStatus);
 				if((textStatus != 'success')&&(!quiet)) {
 					alert(errorThrown);
 					//navigator.notification.alert('There was a problem communicating with the server.',null,'GroupPost');
