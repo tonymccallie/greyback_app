@@ -2934,21 +2934,19 @@ try {
 				options.fileKey = 'media';
 				options.uploader = 'test';
 				options.fileName = filename;
-
-				options.params = {
-					params: {
-						"auth":{
-							"key":'4cdc5c60f7284d9cae526bff72ec3211'
-						},
-						"template_id":'9424fda8623a4fd3a7b1f29f4b277d84',
-						notify_url: url+'/complete/MediaVideo',
-						"steps":{},
-						"fields":{
-							"domain":viewModel.domainkey,
-							"basename":basename
-						}
+				var params = {
+					"auth":{
+						"key":'4cdc5c60f7284d9cae526bff72ec3211'
+					},
+					"template_id":'9424fda8623a4fd3a7b1f29f4b277d84',
+					notify_url: url+'/complete/MediaVideo',
+					"steps":{},
+					"fields":{
+						"domain":viewModel.domainkey,
+						"basename":basename
 					}
 				};
+				options.params = {params:JSON.stringify(params)};
 				
 				console.log(options);
 
