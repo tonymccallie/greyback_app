@@ -2939,7 +2939,7 @@ try {
 						"key":'4cdc5c60f7284d9cae526bff72ec3211'
 					},
 					"template_id":'9424fda8623a4fd3a7b1f29f4b277d84',
-					notify_url: url+'/complete/MediaVideo',
+					notify_url: url+'complete/MediaVideo',
 					"steps":{},
 					"fields":{
 						"domain":viewModel.domainkey,
@@ -2947,8 +2947,6 @@ try {
 					}
 				};
 				options.params = {params:JSON.stringify(params)};
-				
-				console.log(options);
 
 				options.chunkedMode = true;
 				
@@ -2957,13 +2955,28 @@ try {
 					videoURI,
 					'http://api2.transloadit.com/assemblies',
 					function(data) {
-						console.log(data);
-						viewModel.log(data);
 						if(data.responseCode == 200) {
 							try {
 								json = JSON.parse(data.response);
-								$('#video_id').val(json.id);
-								defself.resolve();
+								console.log(json);
+								if(json.assembly_url) {
+									$.ajax({
+										url: url+'save/'+fileName+'/MediaVideo/'+viewModel.user.user_id,
+										data: json,
+										success:function(savedata,status) {
+											console.log(savedata);
+											if(status == "success") {
+												tmpjson = JSON.parse(savedata);
+												$('#video_id').val(json.id);
+												defself.resolve();
+											} else {
+												alert(status);
+												return;
+											}
+										},
+										async:false
+									});
+								}
 							} catch(e) {
 								viewModel.log(e);
 							}
