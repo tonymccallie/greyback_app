@@ -6,6 +6,7 @@ var Router = function() {
 	}
 
 	self.load = function(url,data,callback) {
+		console.log(data);
 		var domain = null;
 		if(viewModel.user.domain === null) {
 			if($('#login_domain').val().length) {
@@ -42,6 +43,7 @@ var Router = function() {
 				}
 			},
 			complete: function(jqXHR, textStatus, errorThrown) {
+				console.log('complete?');
 				if((textStatus != 'success')&&(!quiet)) {
 					alert(errorThrown);
 					//navigator.notification.alert('There was a problem communicating with the server.',null,'GroupPost');
@@ -59,7 +61,7 @@ var Router = function() {
 			options.type = 'POST';
 			options.data = data;
 		}
-
+console.log(options);
 		try {
 			return($.ajax(options));
 		} catch(e) {
