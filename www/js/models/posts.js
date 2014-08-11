@@ -246,6 +246,7 @@ var Posts = function() {
 											$('#loading').fadeOut();
 											if(status == "success") {
 												tmpjson = JSON.parse(savedata);
+												viewModel.log(json.id);
 												$('#video_id').val(json.id);
 												defself.resolve();
 											} else {
