@@ -31,6 +31,7 @@ var Router = function() {
 				}
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
+				console.log([url,jqXHR, textStatus, errorThrown]);
 				switch(jqXHR.status) {
 					case 404:
 						navigator.notification.alert('That domain is not accepting GreyBack logins');
