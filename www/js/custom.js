@@ -2869,7 +2869,7 @@ var Posts = function() {
 										url: url+'save/'+filename+'/MediaVideo/'+viewModel.user.user_id,
 										data: json,
 										success:function(savedata,status) {
-											viewModel.log('save success');
+											viewModel.log(savedata);
 											$('#loading').fadeOut();
 											if(status == "success") {
 												tmpjson = JSON.parse(savedata);
