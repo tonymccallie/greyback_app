@@ -2873,8 +2873,7 @@ var Posts = function() {
 											$('#loading').fadeOut();
 											if(status == "success") {
 												tmpjson = JSON.parse(savedata);
-												viewModel.log(json.id);
-												$('#video_id').val(json.id);
+												$('#video_id').val(tmpjson.id);
 												defself.resolve();
 											} else {
 												alert(status);
