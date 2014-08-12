@@ -1,8 +1,16 @@
-<div class="uk-container uk-container-center">
-	<div class="uk-grid">
-		<div class="uk-width-1-1">
-			<pre data-bind="text: ko.toJSON(logfile, null, 2)"></pre>
-		</div>
-	</div>
+<div class="uk-container um-container-center">
+    <div class="uk-grid">
+        <div class="uk-width-1-1">
+            <div class="widget">
+                <div class="widget-header">
+                    <i class="uk-icon-info-circle"></i>
+                    <h3>Debug</h3>
+                </div>
+                <div class="widget-content">
+					<pre data-bind="text: ko.toJSON(logfile, null, 2)"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div data-bind="template: {name: 'footer_template'}"></div>
