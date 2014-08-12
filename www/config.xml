@@ -87,6 +87,7 @@
 	<gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
 	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
 	<gap:plugin name="com.phonegap.plugin.statusbar" />
+	<gap:plugin name="com.ionic.keyboard" version="1.0.2" />
     <!--
         Define access to external domains.
 

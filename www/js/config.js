@@ -57,7 +57,13 @@ var app = {
         }
     },
     deviceready: function() {
-
+		window.addEventListener('native.keyboardshow', function(e) {
+			$('.footer').hide();
+		});
+		
+		window.addEventListener('native.keyboardhide', function(e) {
+			$('.footer').show();
+		});
     },
     report: function(id) {
         // Report the event in the console
