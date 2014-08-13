@@ -2687,6 +2687,7 @@ var Posts = function() {
 	self.loadPost = function() {
 		$('#form_post').validate({
 			submitHandler: function(data) {
+				cordova.plugins.Keyboard.close();
 				self.formPost(data);
 			}
 		});
@@ -2703,6 +2704,7 @@ var Posts = function() {
 	self.loadPhoto = function() {
 		$('#form_photo').validate({
 			submitHandler: function(data) {
+				cordova.plugins.Keyboard.close();
 				self.formPhoto(data);
 			}
 		});
@@ -2807,6 +2809,7 @@ var Posts = function() {
 	self.loadVideo = function() {
 		$('#form_video').validate({
 			submitHandler: function(data) {
+				cordova.plugins.Keyboard.close();
 				self.formVideo(data);
 			}
 		});
@@ -2968,6 +2971,7 @@ var User = function() {
 
 	self.login = function() {
 		self.domain = $('#login_domain').val();
+		cordova.plugins.Keyboard.close();
 		router.load('login',$('#user_login').serialize(),function(data) {
 			var save_data = {
 				user_id: data.user_id,

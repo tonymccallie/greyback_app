@@ -60,6 +60,7 @@ var Posts = function() {
 	self.loadPost = function() {
 		$('#form_post').validate({
 			submitHandler: function(data) {
+				cordova.plugins.Keyboard.close();
 				self.formPost(data);
 			}
 		});
@@ -76,6 +77,7 @@ var Posts = function() {
 	self.loadPhoto = function() {
 		$('#form_photo').validate({
 			submitHandler: function(data) {
+				cordova.plugins.Keyboard.close();
 				self.formPhoto(data);
 			}
 		});
@@ -180,6 +182,7 @@ var Posts = function() {
 	self.loadVideo = function() {
 		$('#form_video').validate({
 			submitHandler: function(data) {
+				cordova.plugins.Keyboard.close();
 				self.formVideo(data);
 			}
 		});

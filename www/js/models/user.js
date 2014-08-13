@@ -15,6 +15,7 @@ var User = function() {
 
 	self.login = function() {
 		self.domain = $('#login_domain').val();
+		cordova.plugins.Keyboard.close();
 		router.load('login',$('#user_login').serialize(),function(data) {
 			var save_data = {
 				user_id: data.user_id,
