@@ -2929,8 +2929,13 @@ var Posts = function() {
 
 	self.takeVideo = function() {
 		navigator.device.capture.captureVideo(function(videoObj) {
-			viewModel.log(videoObj);
-			var videoURI = 'file://'+videoObj[0].fullPath;
+			if (!navigator.userAgent.match(/(iPad|iPhone)/)) {
+				var videoURI = 'file://'+videoObj[0].fullPath;
+			} else {
+				var videoURI = videoObj[0].fullPath;
+			}
+			
+			
 			self.processVideo(videoURI);
 		}, function(data) {
 			viewModel.log(['Error capturing video',data]);
