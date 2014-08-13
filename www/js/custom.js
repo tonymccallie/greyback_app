@@ -2975,7 +2975,7 @@ var User = function() {
 				domainkey: data.domainkey
 			}
 			self.user_id = data.user_id;
-			self.domain = data.domain;
+			self.domain = self.domain;
 			self.domainkey = data.domainkey;
 			localStorage.setItem('greyback_user',ko.toJSON(save_data));
 			router.loadPage('start');
