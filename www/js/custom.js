@@ -3053,6 +3053,7 @@ var app = {
 		
 		window.addEventListener('native.keyboardhide', function(e) {
 			$('.footer').show();
+			navigator.notification.alert('down');
 		});
     },
     report: function(id) {
