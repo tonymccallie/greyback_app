@@ -2981,6 +2981,7 @@ var User = function() {
 			self.user_id = data.user_id;
 			self.domain = self.domain;
 			self.domainkey = data.domainkey;
+			viewModel.posts.update(self.user_id);
 			localStorage.setItem('greyback_user',ko.toJSON(save_data));
 			router.loadPage('start');
 		});
