@@ -36,8 +36,8 @@ var Router = function() {
 						navigator.notification.alert('That domain is not accepting GreyBack logins');
 						break;
 					default:
+						navigator.notification.alert('There was an error logging your user in. Please verify all the fields.');
 						viewModel.log([jqXHR, textStatus, errorThrown]);
-						pager.navigate('#!/debug');
 				}
 			},
 			complete: function(jqXHR, textStatus, errorThrown) {

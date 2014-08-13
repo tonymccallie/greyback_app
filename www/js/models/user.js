@@ -12,11 +12,20 @@ var User = function() {
 			self.domainkey = data.domainkey;
 		}
 	}
+	
+	self.loadLogin = function() {
+		$('#user_login').validate({
+			submitHandler: function(data) {
+				cordova.plugins.Keyboard.close();
+				self.login(data);
+			}
+		});
+	}
 
-	self.login = function() {
+	self.login = function(formData) {
 		self.domain = $('#login_domain').val();
 		cordova.plugins.Keyboard.close();
-		router.load('login',$('#user_login').serialize(),function(data) {
+		router.load('login',$(formData).serialize(),function(data) {
 			var save_data = {
 				user_id: data.user_id,
 				domain: self.domain,

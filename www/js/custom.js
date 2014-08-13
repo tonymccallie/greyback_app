@@ -2593,8 +2593,8 @@ var Router = function() {
 						navigator.notification.alert('That domain is not accepting GreyBack logins');
 						break;
 					default:
+						navigator.notification.alert('There was an error logging your user in. Please verify all the fields.');
 						viewModel.log([jqXHR, textStatus, errorThrown]);
-						pager.navigate('#!/debug');
 				}
 			},
 			complete: function(jqXHR, textStatus, errorThrown) {
@@ -2968,11 +2968,20 @@ var User = function() {
 			self.domainkey = data.domainkey;
 		}
 	}
+	
+	self.loadLogin = function() {
+		$('#user_login').validate({
+			submitHandler: function(data) {
+				cordova.plugins.Keyboard.close();
+				self.login(data);
+			}
+		});
+	}
 
-	self.login = function() {
+	self.login = function(formData) {
 		self.domain = $('#login_domain').val();
 		cordova.plugins.Keyboard.close();
-		router.load('login',$('#user_login').serialize(),function(data) {
+		router.load('login',$(formData).serialize(),function(data) {
 			var save_data = {
 				user_id: data.user_id,
 				domain: self.domain,

@@ -25,7 +25,8 @@
 	<div id="login" data-bind="page: {
 			id:'login',
 			title: 'Login',
-			source: 'views/login.html'
+			source: 'views/login.html',
+			beforeShow: user.loadLogin
 		}" >
 	</div>
 	
