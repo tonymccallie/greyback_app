@@ -12,15 +12,6 @@ var User = function() {
 			self.domainkey = data.domainkey;
 		}
 	}
-	
-	self.loadLogin = function() {
-		$('#user_login').validate({
-			submitHandler: function(data) {
-				cordova.plugins.Keyboard.close();
-				self.login(data);
-			}
-		});
-	}
 
 	self.login = function(formData) {
 		self.domain = $('#login_domain').val();

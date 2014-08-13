@@ -2968,15 +2968,6 @@ var User = function() {
 			self.domainkey = data.domainkey;
 		}
 	}
-	
-	self.loadLogin = function() {
-		$('#user_login').validate({
-			submitHandler: function(data) {
-				cordova.plugins.Keyboard.close();
-				self.login(data);
-			}
-		});
-	}
 
 	self.login = function(formData) {
 		self.domain = $('#login_domain').val();
@@ -3012,6 +3003,13 @@ var app = {
     bind: function() {
         document.addEventListener('deviceready', this.deviceready, false);
         if (!navigator.userAgent.match(/(iPad|iPhone|Android)/)) {
+			cordova = {
+					plugins: {
+						Keyboard: {
+							close: function(){}
+						}
+					}
+			};
             isMobile = false;
             navigator.notification = {
                 alert:function (message) {

@@ -5,6 +5,13 @@ var app = {
     bind: function() {
         document.addEventListener('deviceready', this.deviceready, false);
         if (!navigator.userAgent.match(/(iPad|iPhone|Android)/)) {
+			cordova = {
+					plugins: {
+						Keyboard: {
+							close: function(){}
+						}
+					}
+			};
             isMobile = false;
             navigator.notification = {
                 alert:function (message) {

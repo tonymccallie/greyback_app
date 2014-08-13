@@ -11,7 +11,7 @@
 				</div>
 				<div class="widget-content">
 					<p>To use this app, you must have a user on a GreyBack powered site. Please use your GreyBack login credentials below.</p>
-					<form id="user_login" class="uk-form">
+					<form id="user_login" data-bind="submit: user.login" class="uk-form">
 						<div class="uk-form-row">
 							<input type="email" name="email" placeholder="Email Address" class="uk-width-1-1" required />
 						</div>
