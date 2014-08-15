@@ -302,12 +302,13 @@ var Posts = function() {
 
 	self.takeVideo = function() {
 		navigator.device.capture.captureVideo(function(videoObj) {
+			viewModel.log(videoObj);
 			if (!navigator.userAgent.match(/(iPad|iPhone)/)) {
 				var videoURI = 'file://'+videoObj[0].fullPath;
 			} else {
 				var videoURI = videoObj[0].fullPath;
 			}
-			
+			viewModel.log(videoURI);
 			
 			self.processVideo(videoURI);
 		}, function(data) {
